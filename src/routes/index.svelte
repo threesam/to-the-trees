@@ -1,43 +1,55 @@
 <script context="module">
-	
-	import client from '$lib/sanityClient'
-  export async function load() {
-		const filter = /* groq */`*[_type == "siteSettings"][0]`
-		const projection = /* groq */`{
+	import client from '$lib/sanityClient';
+	export async function load() {
+		const filter = /* groq */ `*[_type == "siteSettings"][0]`;
+		const projection = /* groq */ `{
           ...,
           title,
           "image": image.asset->url,
           "alt": image.alt,
           "caption": image.caption,
-      }`
-      
-      const query = filter + projection
-      
-      const siteInfo = await client
-			.fetch(query)
-			.catch((err) => this.error(500, err))
-			
-			return { 
-				props: {
-					siteInfo
-				} 
+      }`;
+
+		const query = filter + projection;
+
+		const siteInfo = await client.fetch(query).catch((err) => this.error(500, err));
+
+		return {
+			props: {
+				siteInfo
 			}
-		}
+		};
+	}
 </script>
 
 <script>
-	import {onMount} from 'svelte'
-	import {fade, scale} from 'svelte/transition'
+	import { onMount } from 'svelte';
+	import { fade, scale } from 'svelte/transition';
 	// import Contact from './_contact.svelte'
-	import SocialLinks from '$lib/components/SocialLinks.svelte'
-	import SEO from '$lib/components/SEO.svelte'
+	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 
-	export let siteInfo
-	const {title, image, alt} = siteInfo
+	export let siteInfo;
 
-	let show = false
-	onMount(()=> show = true)
+	let show = false;
+	onMount(() => (show = true));
 </script>
+
+<SEO {...siteInfo} description="A repository of work for Laila Wolf" />
+
+<section>
+	{#if show}
+		<div class="card">
+			<h1 id={siteInfo.title}>{siteInfo.title}</h1>
+			<SocialLinks />
+		</div>
+		<img
+			in:scale={{ duration: 2000, start: 1.2, opacity: 0.2 }}
+			src={siteInfo.image}
+			alt={siteInfo.alt}
+		/>
+	{/if}
+</section>
 
 <style>
 	section {
@@ -47,10 +59,10 @@
 		display: grid;
 		place-content: center;
 		text-align: center;
-		background-color: rgba(0,0,0,0.69);
+		background-color: rgba(0, 0, 0, 0.69);
 		overflow: hidden;
 	}
-	
+
 	img {
 		position: absolute;
 		top: 0;
@@ -66,16 +78,3 @@
 		line-height: 1.1;
 	}
 </style>
-
-<SEO {...siteInfo} description="A repository of work for Laila Wolf" />
-
-<section>
-	{#if show}
-		<div class="card">
-
-			<h1 id="{title}">{title}</h1>
-			<SocialLinks/>
-		</div>
-			<img in:scale={{duration:2000, start: 1.2, opacity: 0.2}} src={image} {alt}>
-	{/if}
-</section>

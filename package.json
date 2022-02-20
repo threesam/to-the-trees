@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@movingbrands/svelte-portable-text": "^0.0.11",
+    "@portabletext/svelte": "^0.2.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-cloudflare": "^1.0.0-next.9",
     "@sveltejs/adapter-static": "^1.0.0-next.28",

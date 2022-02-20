@@ -4,6 +4,7 @@ specifiers:
   '@fontsource/fira-mono': ^4.5.0
   '@lukeed/uuid': ^2.0.0
   '@movingbrands/svelte-portable-text': ^0.0.11
+  '@portabletext/svelte': ^0.2.0
   '@sanity/client': ^2.23.2
   '@sanity/image-url': ^1.0.1
   '@sveltejs/adapter-auto': next
@@ -36,6 +37,7 @@ dependencies:
 
 devDependencies:
   '@movingbrands/svelte-portable-text': 0.0.11_svelte@3.44.3
+  '@portabletext/svelte': 0.2.0_svelte@3.44.3
   '@sveltejs/adapter-auto': 1.0.0-next.17
   '@sveltejs/adapter-cloudflare': 1.0.0-next.9
   '@sveltejs/adapter-static': 1.0.0-next.28
@@ -155,6 +157,14 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+    dev: true
+
+  /@portabletext/svelte/0.2.0_svelte@3.44.3:
+    resolution: {integrity: sha512-9CWGM0ud3eyjF01ox8MZVAkv0YUKBtKKok8EpAZpFpFo4RnhCBqfD8GhcsZ6AyYCRcVKreAeba8kU5pk0mo0/Q==}
+    peerDependencies:
+      svelte: ^3.40.0
+    dependencies:
+      svelte: 3.44.3
     dev: true
 
   /@rexxars/eventsource-polyfill/1.0.0:
