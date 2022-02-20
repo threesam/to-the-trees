@@ -1,12 +1,18 @@
 <script>
-	import Nav from '$lib/components/Nav.svelte';
+	import Header from '$lib/header/Header.svelte';
+	import ContactForm from '$lib/components/ContactForm.svelte';
+	import '../app.css';
 </script>
 
-<Nav />
+<Header />
 
 <main>
 	<slot />
 </main>
+
+<footer>
+	<ContactForm />
+</footer>
 
 <style>
 	main {

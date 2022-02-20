@@ -7,7 +7,7 @@
   --green: #00ebc7;
   --red: #ff5470;
   --yellow: #fde24f;
-  --black: #1b2d45;
+  --black: #000000;
   --darkBlue: #00214d;
   --darkGrey: #111;
   --grey: #bfbfbf;
@@ -22,7 +22,7 @@
   --buttonTextColor: var(--black);
   --lineColor: var(--grey);
   --cardBg: var(--white);
-  --headerBackground: var(--darkBlue);
+  --headerBackground: var(--black);
   --footerBackground: var(--black);
   --footerTextColor: var(--lightGrey);
 

@@ -24,8 +24,7 @@
 
 <script>
 	import { onMount } from 'svelte';
-	import { fade, scale } from 'svelte/transition';
-	// import Contact from './_contact.svelte'
+	import { scale } from 'svelte/transition';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 
@@ -49,6 +48,9 @@
 			alt={siteInfo.alt}
 		/>
 	{/if}
+</section>
+<section>
+	<h1>Merch</h1>
 </section>
 
 <style>
