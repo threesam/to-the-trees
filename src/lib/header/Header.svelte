@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import SocialLinks from '$lib/components/SocialLinks.svelte';
 </script>
 
 <header>
@@ -8,18 +9,19 @@
 	</div>
 
 	<nav>
-		<ul>
+		<!-- <ul>
 			<li class:active={$page.url.pathname === '/'}>
 				<a sveltekit:prefetch href="/">home</a>
 			</li>
 			<li class:active={$page.url.pathname === '/about'}>
 				<a sveltekit:prefetch href="/about">about</a>
 			</li>
-		</ul>
+		</ul> -->
+		<SocialLinks />
 	</nav>
 
 	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+		<a sveltekit:prefetch href="/cart">cart</a>
 	</div>
 </header>
 
@@ -29,8 +31,28 @@
 		justify-content: space-between;
 	}
 
+	header {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		color: var(--white);
+		height: var(--headerHeight);
+		background: var(--headerBackground);
+		box-shadow: var(--level-2);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1rem;
+		z-index: 10;
+	}
+
+	header a {
+		color: var(--white);
+		text-decoration: none;
+	}
+
 	.corner {
-		width: 3em;
 		height: 3em;
 	}
 

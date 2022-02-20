@@ -38,10 +38,9 @@
 
 <section>
 	{#if show}
-		<div class="card">
-			<h1 id={siteInfo.title}>{siteInfo.title}</h1>
-			<SocialLinks />
-		</div>
+		<h1 id={siteInfo.title}>{siteInfo.title}</h1>
+		<p class="card">Little something <a href="/about">about me</a></p>
+		<!-- <SocialLinks /> -->
 		<img
 			in:scale={{ duration: 2000, start: 1.2, opacity: 0.2 }}
 			src={siteInfo.image}
@@ -78,5 +77,6 @@
 	h1 {
 		font-size: 4rem;
 		line-height: 1.1;
+		color: #fff;
 	}
 </style>

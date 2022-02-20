@@ -39,20 +39,27 @@
 	{alt}
 />
 
-<h1>About Laila</h1>
+<section>
+	<h1>About Laila</h1>
 
-<img src={image} {alt} />
+	<img src={image} {alt} />
 
-<PortableText
-	blocks={bio}
-	serializers={{
-		marks: {
-			link: Link
-		}
-	}}
-/>
+	<PortableText
+		blocks={bio}
+		serializers={{
+			marks: {
+				link: Link
+			}
+		}}
+	/>
+</section>
 
 <style>
+	section {
+		max-width: 40rem;
+		margin: 0 auto;
+		padding: 4rem 1rem;
+	}
 	img {
 		filter: grayscale(100%);
 	}
