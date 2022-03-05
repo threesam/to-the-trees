@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import { showMiniCart } from '$lib/stores/cart';
 </script>
 
 <header>
@@ -21,7 +22,7 @@
 	</nav>
 
 	<div class="corner">
-		<a sveltekit:prefetch href="/cart">cart</a>
+		<button on:click={() => ($showMiniCart = !$showMiniCart)}>Cart</button>
 	</div>
 </header>
 
@@ -45,6 +46,7 @@
 		align-items: center;
 		padding: 0 1rem;
 		z-index: 10;
+		font-family: var(--headingFont);
 	}
 
 	header a {
@@ -56,12 +58,19 @@
 		height: 3em;
 	}
 
-	.corner a {
+	.corner a,
+	.corner button {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: 100%;
 		height: 100%;
+	}
+
+	.corner button {
+		background: none;
+		color: white;
+		padding: 0;
 	}
 
 	.corner img {
@@ -115,7 +124,9 @@
 		transition: color 0.2s linear;
 	}
 
-	a:hover {
+	a:hover,
+	button:hover {
+		cursor: pointer;
 		color: var(--green);
 	}
 </style>

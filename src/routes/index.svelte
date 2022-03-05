@@ -50,6 +50,7 @@
 </section>
 <section>
 	<h1>Merch</h1>
+	<a href="/store">visit store</a>
 </section>
 
 <style>

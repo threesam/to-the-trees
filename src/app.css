@@ -71,6 +71,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -192,7 +194,6 @@ button {
   color: var(--buttonTextColor);
   background: var(--buttonColor);
   border: none;
-  border-radius: 10px;
   padding: 5px 25px;
   box-shadow: var(--level-1);
   transition: 0.3s ease-in-out box-shadow;
@@ -200,6 +201,7 @@ button {
 
 button:hover {  
   box-shadow: var(--level-2);
+  transform: scale(0.97);
 }
 
 button[disabled] {

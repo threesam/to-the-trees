@@ -23,13 +23,13 @@
 </script>
 
 <script>
+	export const prerender = true;
 	import PortableText from '@portabletext/svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import Link from '$lib/components/Link.svelte';
 
 	export let author;
 	const { name, image, alt, caption, bio } = author;
-	console.log('bio', bio);
 </script>
 
 <SEO

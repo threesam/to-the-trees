@@ -1,6 +1,7 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import ContactForm from '$lib/components/ContactForm.svelte';
+	import MiniCart from '$lib/components/MiniCart.svelte';
 	import '../app.css';
 </script>
 
@@ -9,6 +10,8 @@
 <main>
 	<slot />
 </main>
+
+<MiniCart />
 
 <footer>
 	<ContactForm />
