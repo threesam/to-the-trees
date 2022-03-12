@@ -1,5 +1,12 @@
+<script>
+	import { lineItems } from '$lib/stores/cart';
+	function handleSubmit() {
+		console.log('lineItems', $lineItems);
+	}
+</script>
+
 <div>
-	<form action="/checkout" method="POST">
+	<form on:submit|preventDefault={handleSubmit}>
 		<button type="submit">Checkout</button>
 	</form>
 </div>

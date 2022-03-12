@@ -3,16 +3,22 @@
 
 	import { lineItems } from '$lib/stores/cart';
 
-	$: totalPrice = $lineItems.length ? $lineItems.reduce((acc, curr) => acc + curr.price, 0) : 0;
+	$: totalPrice = $lineItems.length
+		? $lineItems.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
+		: 0;
 
 	import { getPrice } from '$lib/utils/products';
 
-	function handleCheckout() {
-		fetch('/checkout', {
+	async function handleCheckout() {
+		const res = await fetch('/checkout.json', {
 			method: 'POST',
 			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify($lineItems)
+			body: JSON.stringify({
+				items: $lineItems
+			})
 		});
+		const { url } = await res.json();
+		window.location.href = url;
 	}
 </script>
 
@@ -22,10 +28,15 @@
 		<aside>
 			<h2>Cart</h2>
 			<ul>
-				{#each $lineItems as { price, name, id }}
-					<h4>{name}</h4>
-					<span>${getPrice(price)}</span>
-					<hr />
+				{#each $lineItems as { price, name, images, quantity }}
+					<li>
+						<img height="100" width="100" src={images[0]} alt={name} />
+						<div class="item-price">
+							<h4>{name}</h4>
+							<p>${getPrice(price)}</p>
+							<p>quantity: {quantity}</p>
+						</div>
+					</li>
 				{/each}
 			</ul>
 			<div class="checkout">
@@ -56,7 +67,7 @@
 	}
 	aside {
 		width: 30%;
-		background: grey;
+		background: var(--background);
 	}
 	h2 {
 		margin: 0;
@@ -67,11 +78,22 @@
 	ul {
 		padding: 0;
 	}
-	ul > * {
+	li {
+		padding: 1rem 0 0 1rem;
+		display: flex;
+		flex-direction: row;
+	}
+	li img {
+		height: 100px;
+		width: 100px;
+	}
+
+	.item-price {
 		padding-left: 1rem;
 	}
 	h4 {
 		margin: 0;
+		line-height: 1;
 	}
 	.checkout {
 		background-color: var(--darkGrey);
@@ -93,5 +115,8 @@
 		text-transform: uppercase;
 		font-family: var(--headingFont);
 		font-size: var(--h4);
+	}
+	p {
+		margin-bottom: 0.25rem;
 	}
 </style>

@@ -3,15 +3,24 @@
 
 	import { lineItems, showMiniCart } from '$lib/stores/cart';
 	import { getPrice } from '$lib/utils/products';
-	console.log('lineItems', lineItems);
 
 	const price = getPrice(product?.price);
 	const currency = product?.currency === 'usd' ? '$' : '';
 
 	const handleClick = (product) => {
-		lineItems.update((items) => [...items, product]);
+		const ids = $lineItems.map((item) => item.priceId);
+		if (ids.includes(product.priceId)) {
+			$lineItems = $lineItems.map((item) => {
+				if (item.priceId === product.priceId) {
+					item.quantity++;
+				}
+				return item;
+			});
+		} else {
+			product.quantity = 1;
+			lineItems.update((items) => [...items, product]);
+		}
 		$showMiniCart = true;
-		console.log('lineItems', $lineItems);
 	};
 </script>
 

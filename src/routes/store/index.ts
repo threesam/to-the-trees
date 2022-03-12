@@ -9,11 +9,11 @@ export async function get() {
 
   const enhancedProducts = products.map(product => {
     const price = prices.filter(price => product.id === price.product).shift()
-    console.log('price', price)
 
+    // enhance product info
+    product.priceId = price.id
     product.price = price.unit_amount
     product.currency = price.currency
-    console.log('product', product)
 
     return product
   })

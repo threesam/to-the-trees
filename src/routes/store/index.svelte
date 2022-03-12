@@ -1,6 +1,5 @@
 <script>
 	export let products;
-	console.log('products', products);
 
 	import ProductCard from '$lib/components/ProductCard.svelte';
 </script>

@@ -1,8 +1,16 @@
 import Stripe from 'stripe'
-
 const stripe = Stripe('sk_test_51HAKI8ENbNtMYgqEvd2jDXQpqmkvscYYHSAM4zhTpGDAhwX5AOhKU5I9IWnMmhweRVkjuRZRpEZPrlkA2igtCbqV00RNuFZXGb')
 
-export async function post() {
+export async function post({ request }) {
+  const { items } = await request.json()
+  const lineItems = items.map(item => {
+    return {
+      price: item.priceId,
+      quantity: item.quantity,
+    }
+  })
+  
+  console.log('line', lineItems)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     shipping_address_collection: {
@@ -52,27 +60,17 @@ export async function post() {
         }
       },
     ],
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'T-shirt',
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-    ],
+    line_items: lineItems,
     mode: 'payment',
     success_url: 'http://localhost:3000/checkout/success',
     cancel_url: 'http://localhost:3000/checkout/cancel',
   })
 
-  return {
-    status: 303,
-    headers: {
-      'Location': session.url
+    return {
+      status: 200,
+      header: {
+        'accept': 'application/json'
+      },
+      body: {url: session.url}
     }
-  }
 }

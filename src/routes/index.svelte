@@ -26,6 +26,7 @@
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 
 	export let siteInfo;
@@ -50,7 +51,8 @@
 </section>
 <section>
 	<h1>Merch</h1>
-	<a href="/store">visit store</a>
+	<Button url="/store">Store Link</Button>
+	<Button primary={true}>button</Button>
 </section>
 
 <style>
