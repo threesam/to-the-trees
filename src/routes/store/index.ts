@@ -1,8 +1,22 @@
+import dotenv from 'dotenv'
 import Stripe from 'stripe'
+dotenv.config()
 
-const stripe = Stripe('sk_test_51HAKI8ENbNtMYgqEvd2jDXQpqmkvscYYHSAM4zhTpGDAhwX5AOhKU5I9IWnMmhweRVkjuRZRpEZPrlkA2igtCbqV00RNuFZXGb')
+const stripe = Stripe(process.env.VITE_STRIPE_API_KEY)
 
 export async function get() {
+  const endpoint = 'https://api.printful.com/store/products'
+  const options = {
+    headers: {
+      'Authorization': `Bearer ${process.env.VITE_PRINTFUL_TOKEN}`
+    }
+  }
+
+  // get All PRoducts
+  const res = await fetch(endpoint, options)
+  const allProducts = await res.json()
+  console.log('products', allProducts);
+
   const { data: products } = await stripe.products.list()
 
   const { data: prices } = await stripe.prices.list()
@@ -19,6 +33,6 @@ export async function get() {
   })
 
   return {
-    body: { products: enhancedProducts }
+    body: { products: allProducts.result }
   }
 }

@@ -1,5 +1,8 @@
+import dotenv from 'dotenv'
 import Stripe from 'stripe'
-const stripe = Stripe('sk_test_51HAKI8ENbNtMYgqEvd2jDXQpqmkvscYYHSAM4zhTpGDAhwX5AOhKU5I9IWnMmhweRVkjuRZRpEZPrlkA2igtCbqV00RNuFZXGb')
+dotenv.config()
+
+const stripe = Stripe(process.env.VITE_STRIPE_API_KEY)
 
 export async function post({ request }) {
   const { items } = await request.json()
@@ -10,7 +13,6 @@ export async function post({ request }) {
     }
   })
   
-  console.log('line', lineItems)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     shipping_address_collection: {

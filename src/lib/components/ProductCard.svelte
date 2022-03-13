@@ -4,6 +4,16 @@
 	import { lineItems, showMiniCart } from '$lib/stores/cart';
 	import { getPrice } from '$lib/utils/products';
 
+	async function getData() {
+		const res = await fetch('https://api.printful.com/store/products' + '/' + product.id, {
+			headers: {
+				Authorization: `Bearer ${import.meta.env.VITE_PRINTFUL_TOKEN}`
+			}
+		});
+		const data = await res.json();
+		return data;
+	}
+
 	const price = getPrice(product?.price);
 	const currency = product?.currency === 'usd' ? '$' : '';
 
@@ -25,8 +35,8 @@
 </script>
 
 <li>
-	<a href={'store/' + (product.slug || '')}>
-		<img src={product.images[0]} alt={product.name} />
+	<a href={'store/' + (product.id || '')}>
+		<img src={product.thumbnail_url} alt={product.name} />
 		<h3>{product.name}</h3>
 	</a>
 	<p>{product.description}</p>
@@ -42,6 +52,7 @@
 		position: relative;
 		border: 1px solid white;
 		list-style: none;
+		background-color: red;
 	}
 	a {
 		border-bottom: none;
