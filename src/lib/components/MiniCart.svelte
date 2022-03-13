@@ -27,18 +27,28 @@
 		<div on:click={() => ($showMiniCart = !$showMiniCart)} class="overlay" />
 		<aside>
 			<h2>Cart</h2>
-			<ul>
-				{#each $lineItems as { price, name, images, quantity }}
-					<li>
-						<img height="100" width="100" src={images[0]} alt={name} />
-						<div class="item-price">
-							<h4>{name}</h4>
-							<p>${getPrice(price)}</p>
-							<p>quantity: {quantity}</p>
-						</div>
-					</li>
-				{/each}
-			</ul>
+			{#if $lineItems.length}
+				<ul>
+					<!-- content here -->
+					{#each $lineItems as { price, name, images, quantity }}
+						<li>
+							<img height="100" width="100" src={images[0]} alt={name} />
+							<div class="item-price">
+								<h4>{name}</h4>
+								<p>${getPrice(price)}</p>
+								<p>quantity: {quantity}</p>
+							</div>
+						</li>
+					{/each}
+				</ul>
+			{:else}
+				<div class="empty-cart">
+					<p>No items in your cart!</p>
+					<p>
+						Visit <a href="/store">the store</a> to grab some merch
+					</p>
+				</div>
+			{/if}
 			<div class="checkout">
 				<div class="price">
 					<span>Subtotal</span>
@@ -90,6 +100,9 @@
 
 	.item-price {
 		padding-left: 1rem;
+	}
+	.empty-cart {
+		padding: 1rem;
 	}
 	h4 {
 		margin: 0;
