@@ -12,10 +12,10 @@
 
 <style>
 	ul {
-		display: flex;
-		flex-direction: row;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
-		width: 100%;
+		max-width: calc(1000px + 1rem);
 		margin: 0 auto;
 		padding: 5rem 1rem 0 1rem;
 	}

@@ -15,7 +15,6 @@ export async function get({params}) {
 
   const response = await fetch(endpoint, options)
   const product = await response.json()
-  console.log('product', product.result.sync_variants);
 
   return {
     body: { product: product.result }

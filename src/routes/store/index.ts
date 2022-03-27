@@ -1,38 +1,56 @@
 import dotenv from 'dotenv'
-import Stripe from 'stripe'
+import client from '$lib/sanityClient';
+import { enhance } from '../../lib/form';
 dotenv.config()
 
-const stripe = Stripe(process.env.VITE_STRIPE_API_KEY)
+
+
+
+// printful fetch args
+const printfulEndpoint = 'https://api.printful.com/store/products'
+const printfulOptions = {
+  headers: {
+    'Authorization': `Bearer ${process.env.VITE_PRINTFUL_TOKEN}`
+  }
+}
 
 export async function get() {
-  const endpoint = 'https://api.printful.com/store/products'
-  const options = {
-    headers: {
-      'Authorization': `Bearer ${process.env.VITE_PRINTFUL_TOKEN}`
-    }
-  }
-
-  // get All PRoducts
-  const res = await fetch(endpoint, options)
+  // get all products
+  const res = await fetch(printfulEndpoint, printfulOptions)
   const allProducts = await res.json()
-  console.log('products', allProducts);
+  
+  // generate product urls to get variant info
+  const productIds = allProducts.result.map(product => product.id)
+  const urls = productIds.map(id => `${printfulEndpoint}/${id}`)
 
-  const { data: products } = await stripe.products.list()
+  // fetch products and return results
+  const products = await (await fetchAll(urls, printfulOptions)).map(product => product.result)
 
-  const { data: prices } = await stripe.prices.list()
+  // enhance with sanity data
+  const filter = /* groq */ `*[_type == "product"]`;
+  const projection = /* groq */ `{
+        ...
+    }`;
 
+  const query = filter + projection;
+
+  const sanity = await client.fetch(query).catch((err) => this.error(500, err));
+  
   const enhancedProducts = products.map(product => {
-    const price = prices.filter(price => product.id === price.product).shift()
-
-    // enhance product info
-    product.priceId = price.id
-    product.price = price.unit_amount
-    product.currency = price.currency
-
-    return product
+    const additionalData = sanity.filter(prod => prod._id === product.sync_product.external_id).pop()
+    return {
+      ...product,
+      ...additionalData
+    }
   })
 
   return {
-    body: { products: allProducts.result }
+    body: { products: enhancedProducts }
   }
+}
+
+const fetchAll = async (urls, options) => {
+  const response = await Promise.all(urls.map(url => fetch(url, options)))
+  const jsons = await Promise.all(response.map(res => res.json()))
+  return jsons
 }

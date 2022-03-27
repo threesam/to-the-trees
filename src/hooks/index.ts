@@ -1,8 +1,9 @@
+import {showMiniCart} from '$lib/stores/cart'
+
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-  if (event.request.url.startsWith('/custom')) {
-    return new Response('custom response')
-  }
+
+  showMiniCart.set(false)
 
   const response = await resolve(event)
   return response

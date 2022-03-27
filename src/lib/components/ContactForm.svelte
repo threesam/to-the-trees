@@ -1,8 +1,34 @@
+<script>
+	const handleSubmit = async (data) => {
+		const formData = new FormData(data.currentTarget);
+
+		const email = {
+			name: formData.get('name'),
+			email: formData.get('email'),
+			message: formData.get('message')
+		};
+
+		const sendEmail = await fetch('/email', {
+			method: 'POST',
+			body: JSON.stringify(email)
+		});
+
+		console.log('sendEmail', JSON.stringify(sendEmail, null, 2));
+	};
+</script>
+
 <section>
 	<div class="card">
 		<h1>Contact</h1>
 
-		<form name="contact" method="POST" data-netlify="true" netlify-honeypot="“bot-field”">
+		<form
+			on:submit|preventDefault={handleSubmit}
+			action="/email"
+			name="contact"
+			method="POST"
+			data-netlify="true"
+			netlify-honeypot="“bot-field”"
+		>
 			<input type="hidden" name="form-name" value="contact" />
 
 			<div>

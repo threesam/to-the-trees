@@ -30,9 +30,9 @@
 			{#if $lineItems.length}
 				<ul>
 					<!-- content here -->
-					{#each $lineItems as { price, name, images, quantity }}
+					{#each $lineItems as { price, name, thumbnail_url, quantity }}
 						<li>
-							<img height="100" width="100" src={images[0]} alt={name} />
+							<img height="100" width="100" src={thumbnail_url} alt={name} />
 							<div class="item-price">
 								<h4>{name}</h4>
 								<p>${getPrice(price)}</p>

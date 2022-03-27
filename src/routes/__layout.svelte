@@ -20,5 +20,6 @@
 <style>
 	main {
 		min-height: 100vh;
+		padding-top: var(--headerHeight);
 	}
 </style>

@@ -1,23 +1,13 @@
 <script>
 	export let product = {};
+	console.log('product', product);
 
 	import { lineItems, showMiniCart } from '$lib/stores/cart';
-	import { getPrice } from '$lib/utils/products';
 
-	async function getData() {
-		const res = await fetch('https://api.printful.com/store/products' + '/' + product.id, {
-			headers: {
-				Authorization: `Bearer ${import.meta.env.VITE_PRINTFUL_TOKEN}`
-			}
-		});
-		const data = await res.json();
-		return data;
-	}
+	const price = product?.sync_variants?.[0]?.retail_price;
+	const currency = product?.sync_variants?.[0]?.currency.toLowerCase() === 'usd' ? '$' : '';
 
-	const price = getPrice(product?.price);
-	const currency = product?.currency === 'usd' ? '$' : '';
-
-	const handleClick = (product) => {
+	function handleAddToCart(product) {
 		const ids = $lineItems.map((item) => item.priceId);
 		if (ids.includes(product.priceId)) {
 			$lineItems = $lineItems.map((item) => {
@@ -31,18 +21,18 @@
 			lineItems.update((items) => [...items, product]);
 		}
 		$showMiniCart = true;
-	};
+	}
 </script>
 
 <li>
-	<a href={'store/' + (product.id || '')}>
-		<img src={product.thumbnail_url} alt={product.name} />
-		<h3>{product.name}</h3>
+	<a sveltekit:prefetch href={'store/' + (product.sync_product.id || '')}>
+		<img src={product.sync_product.thumbnail_url} alt={product.sync_product.name} />
+		<h3>{product.sync_product.name}</h3>
 	</a>
 	<p>{product.description}</p>
 	<div>
 		<span>{currency}{price}</span>
-		<button on:click={() => handleClick(product)}>Add to Cart</button>
+		<button on:click={() => handleAddToCart(product)}>Add to Cart</button>
 	</div>
 </li>
 
@@ -50,9 +40,8 @@
 	li {
 		max-width: 500px;
 		position: relative;
-		border: 1px solid white;
 		list-style: none;
-		background-color: red;
+		background-color: var(--darkGrey);
 	}
 	a {
 		border-bottom: none;
