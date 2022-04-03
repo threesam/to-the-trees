@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
 
+@font-face{
+  font-family: 'Carbon Block';
+  src: url('/fonts/CarbonBlock.tff') format('tff');
+}
+
 :root {
   /* define colors as colors */
   --green: #00ebc7;
@@ -32,7 +37,7 @@
   --borderRadius: 10px;
 
   /* Type */
-  --headingFont: 'Unica One', cursive;
+  --headingFont: 'Carbon Block', cursive;
   --bodyFont: 'Vollkorn', serif;
   --h1: 3.052rem;
   --h2: 2.441rem;

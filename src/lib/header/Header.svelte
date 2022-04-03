@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import Logo from './Logo.svelte';
 	import { showMiniCart } from '$lib/stores/cart';
 </script>
 
 <header>
-	<div class="corner">
-		<a sveltekit:prefetch href="/">home</a>
-	</div>
-
 	<nav>
+		<div class="corner">
+			<a sveltekit:prefetch href="/"><Logo /></a>
+		</div>
+
 		<!-- <ul>
 			<li class:active={$page.url.pathname === '/'}>
 				<a sveltekit:prefetch href="/">home</a>
@@ -19,11 +20,11 @@
 			</li>
 		</ul> -->
 		<SocialLinks />
-	</nav>
 
-	<div class="corner">
-		<button on:click={() => ($showMiniCart = !$showMiniCart)}>Cart</button>
-	</div>
+		<div class="corner">
+			<button on:click={() => ($showMiniCart = !$showMiniCart)}>Cart</button>
+		</div>
+	</nav>
 </header>
 
 <style>
@@ -44,7 +45,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0 1rem;
+		padding: 0 3rem;
 		z-index: 10;
 		font-family: var(--headingFont);
 	}
@@ -56,6 +57,7 @@
 
 	.corner {
 		height: 3em;
+		width: 100px;
 	}
 
 	.corner a,
@@ -73,15 +75,18 @@
 		padding: 0;
 	}
 
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+	.corner a:first-of-type {
+		justify-content: left;
+	}
+	.corner button:last-of-type {
+		justify-content: right;
 	}
 
 	nav {
+		width: 100%;
+		margin: 0 auto;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 	}
 
 	ul {
@@ -115,7 +120,6 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 1em;
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
