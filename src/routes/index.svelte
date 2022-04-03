@@ -25,7 +25,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import { scale } from 'svelte/transition';
-	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 
