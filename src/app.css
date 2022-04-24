@@ -37,7 +37,7 @@
   --borderRadius: 10px;
 
   /* Type */
-  --headingFont: 'Carbon Block', cursive;
+  --headingFont: 'Unica One', monospace;
   --bodyFont: 'Vollkorn', serif;
   --h1: 3.052rem;
   --h2: 2.441rem;
@@ -116,6 +116,7 @@ p {
 
 p a, 
 li a,
+span a,
 blockquote a {
   color: var(--textColor);
   text-decoration: none;

@@ -16,6 +16,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^4.33.0
   '@typescript-eslint/parser': ^4.33.0
   cookie: ^0.4.2
+  date-fns: ^2.28.0
   dotenv: ^16.0.0
   eslint: ^7.32.0
   eslint-config-prettier: ^8.5.0
@@ -38,6 +39,7 @@ dependencies:
   '@sanity/image-url': 1.0.1
   '@sveltejs/adapter-cloudflare-workers': 1.0.0-next.36
   cookie: 0.4.2
+  date-fns: 2.28.0
   dotenv: 16.0.0
   nodemailer: 6.7.3
   stripe: 8.215.0
@@ -46,10 +48,10 @@ dependencies:
 devDependencies:
   '@movingbrands/svelte-portable-text': 0.0.11_svelte@3.46.6
   '@portabletext/svelte': 0.2.0_svelte@3.46.6
-  '@sveltejs/adapter-auto': 1.0.0-next.34
+  '@sveltejs/adapter-auto': 1.0.0-next.38
   '@sveltejs/adapter-cloudflare': 1.0.0-next.17
   '@sveltejs/adapter-static': 1.0.0-next.29
-  '@sveltejs/kit': 1.0.0-next.304_svelte@3.46.6
+  '@sveltejs/kit': 1.0.0-next.320_svelte@3.46.6
   '@types/cookie': 0.4.1
   '@typescript-eslint/eslint-plugin': 4.33.0_0c49e12669280545a7ea3f36dba6eb0a
   '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.6.3
@@ -226,12 +228,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /@sveltejs/adapter-auto/1.0.0-next.34:
-    resolution: {integrity: sha512-BzZVfy39idFojauroLrE/v9paJ1/HOlS2R857ooCwaLg+RrRy6zJHWwYxNSv5e8AaZiVg7ioZZpU/2g6ZgUpaQ==}
+  /@sveltejs/adapter-auto/1.0.0-next.38:
+    resolution: {integrity: sha512-1//aiV/Wzebj+j5X8VLRs0vJUT3andc/0+IRQwy5ykOwjpNo5/Mj2RX8SA+t5nxBFYyJJf2kj6sszKA8LjRAQQ==}
     dependencies:
-      '@sveltejs/adapter-cloudflare': 1.0.0-next.17
-      '@sveltejs/adapter-netlify': 1.0.0-next.51
-      '@sveltejs/adapter-vercel': 1.0.0-next.47
+      '@sveltejs/adapter-cloudflare': 1.0.0-next.18
+      '@sveltejs/adapter-netlify': 1.0.0-next.55
+      '@sveltejs/adapter-vercel': 1.0.0-next.49
     dev: true
 
   /@sveltejs/adapter-cloudflare-workers/1.0.0-next.36:
@@ -248,8 +250,15 @@ packages:
       worktop: 0.8.0-next.12
     dev: true
 
-  /@sveltejs/adapter-netlify/1.0.0-next.51:
-    resolution: {integrity: sha512-P7/cW/0z8zd8J6DOI2yxKZG0+HRMMuzfOf0yzFXX0vRwBePhKlZ/H4qhTOo2NrCmj3Len545o+ugj5gyMXl1+g==}
+  /@sveltejs/adapter-cloudflare/1.0.0-next.18:
+    resolution: {integrity: sha512-iIb7ScN2hnnfVQPhRjw0FYpovYJrw4n22BFAQIg6QvOwmmGz1E3QkyBkm/tRmyY7emDfnljgXtvk4Hsoszp5Ug==}
+    dependencies:
+      esbuild: 0.14.30
+      worktop: 0.8.0-next.12
+    dev: true
+
+  /@sveltejs/adapter-netlify/1.0.0-next.55:
+    resolution: {integrity: sha512-LbqupuX8SdvUdCLSLiazPdU+JwwVhWGmoAopwlFkdlGOsGEag6jB+CjEYPmy81SVMSKxtYA2RqNzBPpPbURDtw==}
     dependencies:
       '@iarna/toml': 2.2.5
       esbuild: 0.14.30
@@ -262,20 +271,21 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.47:
-    resolution: {integrity: sha512-VV3vP8KqL9XOc7xfQLVhXTM5jrTme+r1qJy98u5/dhAhkdjqrGDwAKo/s7MoB3rTYxLb2b8I4QxAaoz2Y2aIBg==}
+  /@sveltejs/adapter-vercel/1.0.0-next.49:
+    resolution: {integrity: sha512-Me0Zb10iBv+ySVMc0XgI7rdzwiMmeVHq48iVv3oXORa/et/efJVEknVSVk22q15XRqys7DhoPirf54Mz4jElFQ==}
     dependencies:
       esbuild: 0.14.30
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.304_svelte@3.46.6:
-    resolution: {integrity: sha512-3+bCoDsF2Omolx51lK6+4Zgr8NYge8USxKpZpAg8OfonEW8L4GToyV4g+udLMCI3CC4QEw3eS1RFUj9UxLf2NQ==}
+  /@sveltejs/kit/1.0.0-next.320_svelte@3.46.6:
+    resolution: {integrity: sha512-BDgF+gd73Gxls65rb3H2oacdQUrK8fM0X174t2kMfGS+MeNN6oZ+Kw+j0IJMzMaZSGco89+/wkPeArvDzM/2MQ==}
     engines: {node: '>=14.13'}
     hasBin: true
     peerDependencies:
       svelte: ^3.44.0
     dependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.40_svelte@3.46.6+vite@2.9.1
+      chokidar: 3.5.3
       sade: 1.8.1
       svelte: 3.46.6
       vite: 2.9.1
@@ -641,6 +651,11 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /date-fns/2.28.0:
+    resolution: {integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==}
+    engines: {node: '>=0.11'}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

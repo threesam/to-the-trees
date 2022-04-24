@@ -1,8 +1,7 @@
 <script context="module">
 	import client from '$lib/sanityClient';
 	export async function load() {
-		const filter = /* groq */ `*[_type == "siteSettings"][0]`;
-		const projection = /* groq */ `{
+		const siteSettingsQuery = /* groq */ `*[_type == "siteSettings"][0]{
           ...,
           title,
           "image": image.asset->url,
@@ -10,113 +9,41 @@
           "caption": image.caption,
       }`;
 
-		const query = filter + projection;
+		const postsQuery = /* groq */ `*[_type == "post"]{
+          ...,
+					"image": mainImage.asset->url,
+          "alt": mainImage.alt,
+					"slug": slug.current
+      }`;
 
-		const siteInfo = await client.fetch(query).catch((err) => this.error(500, err));
+		const query = `{
+			"siteSettings": ${siteSettingsQuery},
+			"posts": ${postsQuery}
+		}`;
+
+		const data = await client.fetch(query).catch((err) => this.error(500, err));
 
 		return {
 			props: {
-				siteInfo
+				siteInfo: data.siteSettings,
+				posts: data.posts
 			}
 		};
 	}
 </script>
 
 <script>
-	import { onMount } from 'svelte';
-	import { scale } from 'svelte/transition';
-	import Button from '$lib/components/Button.svelte';
 	import SEO from '$lib/components/SEO.svelte';
+	import Banner from '$lib/components/Banner.svelte';
 
 	export let siteInfo;
-
-	let show = false;
-	onMount(() => (show = true));
+	export let posts;
 </script>
 
 <SEO {...siteInfo} description="A repository of work for Laila Wolf" />
 
 <!-- CONTENT SECTION -->
-<section>
-	{#if show}
-		<div class="banner">
-			<div class="banner-content">
-				<div class="block">
-					<span class="">coming soon..</span>
-					<h1>Title of Upcoming Content</h1>
-				</div>
-				<div class="block">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus reprehenderit delectus
-						repellat vel aperiam incidunt eligendi ex fuga quos! Consequatur accusamus dolores
-						laborum velit possimus esse veritatis illum dignissimos in.
-					</p>
-					<Button>Subscribe To Updates</Button>
-				</div>
-			</div>
-			<img
-				in:scale={{ duration: 2000, start: 1.2, opacity: 0.2 }}
-				src={siteInfo.image}
-				alt={siteInfo.alt}
-			/>
-		</div>
-	{/if}
-</section>
-<!-- CONTENT GRID -->
-<section class="content-grid">
-	<div class="content-grid__item" style={`background-image: url(${siteInfo.image})`}>
-		<div class="content-grid__item-text">
-			<h1>Title</h1>
-			<p>
-				description::: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet minima
-				inventore aperiam, rerum impedit quas exercitationem omnis laborum maiores dolorem saepe
-				cumque at suscipit beatae deserunt officiis nesciunt quibusdam odio!
-			</p>
-			<p>
-				<a href="#" class="button">view content</a>
-			</p>
-		</div>
-	</div>
-	<div class="content-grid__item" style={`background-image: url(${siteInfo.image})`}>
-		<div class="content-grid__item-text">
-			<h1>Title</h1>
-			<p>
-				description::: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet minima
-				inventore aperiam, rerum impedit quas exercitationem omnis laborum maiores dolorem saepe
-				cumque at suscipit beatae deserunt officiis nesciunt quibusdam odio!
-			</p>
-			<p>
-				<a href="#" class="button">view content</a>
-			</p>
-		</div>
-	</div>
-	<div class="content-grid__item" style={`background-image: url(${siteInfo.image})`}>
-		<div class="content-grid__item-text">
-			<h1>Title</h1>
-			<p>
-				description::: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet minima
-				inventore aperiam, rerum impedit quas exercitationem omnis laborum maiores dolorem saepe
-				cumque at suscipit beatae deserunt officiis nesciunt quibusdam odio!
-			</p>
-			<p>
-				<a href="#" class="button">view content</a>
-			</p>
-		</div>
-	</div>
-	<div class="content-grid__item" style={`background-image: url(${siteInfo.image})`}>
-		<div class="content-grid__item-text">
-			<h1>Title</h1>
-			<p>
-				description::: Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet minima
-				inventore aperiam, rerum impedit quas exercitationem omnis laborum maiores dolorem saepe
-				cumque at suscipit beatae deserunt officiis nesciunt quibusdam odio!
-			</p>
-			<p>
-				<a href="#" class="button">view content</a>
-			</p>
-		</div>
-	</div>
-</section>
+<Banner data={siteInfo} />
 <!-- ABOUT SECTION -->
 <section class="blockquote-container">
 	<div class="blockquote">
@@ -140,44 +67,22 @@
 		</p>
 	</div>
 </section>
-<!-- PRODUCT GRID -->
-<section>
-	{#if show}
-		<div class="merch">
-			<div class="content">
-				<a class="product-card" href="/about">
-					<div class="img" />
-					<h3>Product Name</h3>
-					<div class="gumroad-product-embed">
-						<a sveltekit:prefetch href="https://threesam.gumroad.com/l/ikhigi">Buy</a>
-					</div>
-				</a>
-				<a class="product-card" href="/music">
-					<div class="img" />
-					<h3>Product Name</h3>
-				</a>
-				<a class="product-card" href="/film">
-					<div class="img" />
-					<h3>Product Name</h3>
-				</a>
-				<a class="product-card" href="/store">
-					<div class="img" />
-					<h3>Product Name</h3>
-				</a>
-				<!-- <Button url="/store">Store Link</Button> -->
-				<!-- <p>Little something <a href="/about">about me</a></p> -->
+<!-- CONTENT GRID -->
+<section class="content-grid">
+	{#each posts.filter((_, i) => i < 4) as post}
+		<div
+			class="content-grid__item"
+			style={`background-image: url(${post.image}); background-size: cover`}
+		>
+			<div class="content-grid__item-text">
+				<h1>{post.title}</h1>
+				<p>{post.description}</p>
+				<p>
+					<a href={'/posts/' + post.slug} class="button">view content</a>
+				</p>
 			</div>
-			<div class="title">
-				<h1 id={siteInfo.title}>Merch</h1>
-			</div>
-			<!-- <SocialLinks /> -->
-			<img
-				in:scale={{ duration: 2000, start: 1.2, opacity: 0.2 }}
-				src={siteInfo.image}
-				alt={siteInfo.alt}
-			/>
 		</div>
-	{/if}
+	{/each}
 </section>
 
 <style>
@@ -188,37 +93,7 @@
 		background-color: rgba(0, 0, 0, 0.69);
 		overflow: hidden;
 	}
-	.merch {
-		height: 100%;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-	}
-	.banner {
-		height: 100%;
-		position: relative;
-	}
-	.banner-content {
-		position: absolute;
-		bottom: 0;
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		justify-content: space-between;
-		padding: 3rem;
-	}
-	.block {
-		width: 50%;
-	}
 
-	.block:last-of-type {
-		text-align: right;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-	}
-	.block p {
-		max-width: 30rem;
-	}
 	.content {
 		background: rgba(0, 0, 0, 0.69);
 		height: 100%;
@@ -288,16 +163,6 @@
 	}
 	.blockquote {
 		max-width: 40rem;
-	}
-
-	img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-		z-index: -10;
 	}
 
 	h1 {

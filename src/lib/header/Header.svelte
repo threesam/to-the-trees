@@ -22,7 +22,7 @@
 		<SocialLinks />
 
 		<div class="corner">
-			<button on:click={() => ($showMiniCart = !$showMiniCart)}>Cart</button>
+			<a sveltekit:prefetch href="https://lailawolf.gumroad.com">Store</a>
 		</div>
 	</nav>
 </header>
