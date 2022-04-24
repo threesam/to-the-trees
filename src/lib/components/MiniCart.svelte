@@ -62,7 +62,7 @@
 
 <style>
 	section {
-		position: absolute;
+		position: fixed;
 		display: flex;
 		flex-flow: row;
 		top: 0;

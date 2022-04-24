@@ -148,6 +148,9 @@
 				<a class="product-card" href="/about">
 					<div class="img" />
 					<h3>Product Name</h3>
+					<div class="gumroad-product-embed">
+						<a sveltekit:prefetch href="https://threesam.gumroad.com/l/ikhigi">Buy</a>
+					</div>
 				</a>
 				<a class="product-card" href="/music">
 					<div class="img" />
