@@ -10,7 +10,6 @@
 		<div class="corner">
 			<a sveltekit:prefetch href="/"><Logo /></a>
 		</div>
-
 		<!-- <ul>
 			<li class:active={$page.url.pathname === '/'}>
 				<a sveltekit:prefetch href="/">home</a>
