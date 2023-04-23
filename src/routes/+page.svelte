@@ -40,51 +40,6 @@
 	export let posts;
 </script>
 
-<SEO {...siteInfo} description="A repository of work for Laila Wolf" />
-
-<!-- CONTENT SECTION -->
-<Banner data={siteInfo} />
-<!-- ABOUT SECTION -->
-<section class="blockquote-container">
-	<div class="blockquote">
-		<h1>About Laila</h1>
-		<p>
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit accusantium quibusdam minima
-			deleniti provident, incidunt, perferendis, expedita recusandae vero assumenda error natus.
-			Quod, excepturi. Suscipit culpa praesentium quae debitis cumque! Lorem ipsum dolor sit amet
-			consectetur adipisicing elit. Maiores in molestias facere voluptatem ipsum. Consectetur neque
-			aliquid, doloribus modi ipsum ullam tempore mollitia exercitationem.
-		</p>
-		<p>
-			Dolorem aliquid optio iure dolore laborum. Lorem ipsum dolor, sit amet consectetur adipisicing
-			elit. Corporis doloribus maxime nihil odio animi delectus facere ab nam repellendus debitis
-			iusto a rerum velit doloremque vero commodi libero, eaque magnam! Lorem ipsum dolor, sit amet
-			consectetur adipisicing elit. Eveniet sint a voluptate reiciendis adipisci eum inventore
-			debitis non, id est sit provident cum quae pariatur ipsam perferendis aperiam dolor at.
-		</p>
-		<p>
-			<a href="/about">Additional Information</a>
-		</p>
-	</div>
-</section>
-<!-- CONTENT GRID -->
-<section class="content-grid">
-	{#each posts.filter((_, i) => i < 4) as post}
-		<div
-			class="content-grid__item"
-			style={`background-image: url(${post.image}); background-size: cover`}
-		>
-			<div class="content-grid__item-text">
-				<h1>{post.title}</h1>
-				<p>{post.description}</p>
-				<p>
-					<a href={'/posts/' + post.slug} class="button">view content</a>
-				</p>
-			</div>
-		</div>
-	{/each}
-</section>
-
 <style>
 	section {
 		position: relative;
@@ -171,3 +126,47 @@
 		color: #fff;
 	}
 </style>
+
+<SEO {...siteInfo} description="A repository of work for Laila Wolf" />
+
+<!-- CONTENT SECTION -->
+<Banner data={siteInfo} />
+<!-- ABOUT SECTION -->
+<section class="blockquote-container">
+	<div class="blockquote">
+		<h1>About Laila</h1>
+		<p>
+			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit accusantium quibusdam minima
+			deleniti provident, incidunt, perferendis, expedita recusandae vero assumenda error natus.
+			Quod, excepturi. Suscipit culpa praesentium quae debitis cumque! Lorem ipsum dolor sit amet
+			consectetur adipisicing elit. Maiores in molestias facere voluptatem ipsum. Consectetur neque
+			aliquid, doloribus modi ipsum ullam tempore mollitia exercitationem.
+		</p>
+		<p>
+			Dolorem aliquid optio iure dolore laborum. Lorem ipsum dolor, sit amet consectetur adipisicing
+			elit. Corporis doloribus maxime nihil odio animi delectus facere ab nam repellendus debitis
+			iusto a rerum velit doloremque vero commodi libero, eaque magnam! Lorem ipsum dolor, sit amet
+			consectetur adipisicing elit. Eveniet sint a voluptate reiciendis adipisci eum inventore
+			debitis non, id est sit provident cum quae pariatur ipsam perferendis aperiam dolor at.
+		</p>
+		<p>
+			<a href="/about">Additional Information</a>
+		</p>
+	</div>
+</section>
+<!-- CONTENT GRID -->
+<section class="content-grid">
+	{#each posts.filter((_, i) => i < 4) as post}
+		<div
+			class="content-grid__item"
+			style={`background-image: url(${post.image}); background-size: cover`}>
+			<div class="content-grid__item-text">
+				<h1>{post.title}</h1>
+				<p>{post.description}</p>
+				<p>
+					<a href={'/posts/' + post.slug} class="button">view content</a>
+				</p>
+			</div>
+		</div>
+	{/each}
+</section>
