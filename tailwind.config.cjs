@@ -2,11 +2,11 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
-			display: ['Oswald', 'sans-serif'],
-			sans: ['Source Sans Pro', 'sans-serif']
+			display: ['Unica One', 'sans-serif'],
+			sans: ['Vollkorn', 'sans-serif'],
+			mono: ['Space Mono', 'monospace']
 		},
 		backgroundImage: {
-			'blue-red-gradient': 'linear-gradient(125deg, #d7d2c9, #82899c)',
 			'gradient-fade': 'linear-gradient(90deg, #d7d2c9, #60677a)'
 		},
 		extend: {
