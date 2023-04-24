@@ -13,9 +13,9 @@
 </script>
 
 <section id="hero" class="relative bg-gradient-3 w-full flex items-center justify-center h-screen">
-	<h1 class="w-full grid grid-cols-2 gap-10 lg:text-6xl">
-		<span class="text-black text-right">Laila</span>
-		<span class="text-black text-left">Wolf</span>
+	<h1 class="w-full flex justify-center lg:grid lg:grid-cols-2 gap-10 lg:text-6xl">
+		<span class="text-black lg:text-right">Laila</span>
+		<span class="text-black lg:text-left">Wolf</span>
 	</h1>
 </section>
 
