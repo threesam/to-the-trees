@@ -29,7 +29,7 @@
 		<label for="email">
 			<input
 				class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
-				focus:border-pink-600 placeholder:text-light"
+				focus:border-yellow-600 placeholder:text-light"
 				placeholder="enter email"
 				type="email"
 				name="email"
@@ -37,7 +37,7 @@
 		</label>
 		<textarea
 			class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
-			focus:border-pink-600 placeholder:text-light"
+			focus:border-yellow-600 placeholder:text-light"
 			name="message"
 			placeholder="enter message"
 			id="contact-message"

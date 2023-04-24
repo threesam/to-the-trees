@@ -10,7 +10,7 @@ export const sketch = (p5) => {
 			const size = p5.random(5, 25);
 			const x = p5.random(p5.windowWidth - size);
 			const y = p5.random(clientHeight);
-			const color = p5.random(100, 255);
+			const color = p5.random() > 0.5 ? [183, 198, 175] : [56, 80, 69];
 
 			let collision;
 			points.forEach((point) => {
@@ -37,7 +37,7 @@ export const sketch = (p5) => {
 				point.y -= 1;
 			}
 
-			p5.stroke(color, 0, color);
+			p5.stroke(...color);
 			p5.fill(17, 17, 17);
 			p5.strokeWeight(2);
 			p5.circle(x, y, size);

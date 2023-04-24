@@ -9,6 +9,13 @@ export async function load() {
 		},
 		icons[]{
 			asset->
+		},
+		founders[]->{
+			...,
+			image{
+				...,
+				asset->
+			}
 		}
 	}`);
 

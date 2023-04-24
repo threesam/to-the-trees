@@ -49,7 +49,7 @@
 			id="email"
 			placeholder="enter email"
 			class="p-5 border-2 border-dark placeholder:text-light bg-dark text-light focus:outline-none
-			focus:border-pink-600"
+			focus:border-yellow-600"
 			on:change={handleChange}
 			bind:value={$form.email} />
 	</label>
