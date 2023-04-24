@@ -37,7 +37,9 @@ export const sketch = (p5) => {
 				point.y -= 1;
 			}
 
-			p5.fill(color, 0, color);
+			p5.stroke(color, 0, color);
+			p5.fill(17, 17, 17);
+			p5.strokeWeight(2);
 			p5.circle(x, y, size);
 		}
 	};

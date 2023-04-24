@@ -6,6 +6,8 @@
 <style lang="scss">
 	:global {
 		.portable-text {
+			@apply text-black;
+
 			h1,
 			h2,
 			h3,
@@ -28,7 +30,7 @@
 			}
 
 			blockquote {
-				@apply p-5 bg-slate-700;
+				@apply p-5 bg-light text-dark border-2 border-dark;
 			}
 		}
 	}
