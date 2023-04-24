@@ -38,13 +38,14 @@
 </script>
 
 <form class="flex" action={endpoint} method="post" on:submit|preventDefault={handleSubmit}>
-	<label for="email" class="border-2 border-black">
+	<label for="email">
 		<input
 			type="email"
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="p-5"
+			class="p-5 border-2 border-dark placeholder:text-light bg-dark text-light focus:outline-none
+			focus:border-pink-600"
 			on:change={handleChange}
 			bind:value={$form.email} />
 	</label>
