@@ -1,5 +1,6 @@
 <script>
 	import PortableText from '$lib/components/PortableText.svelte';
+	import { urlFor } from '$lib/utils/sanity';
 
 	export let data;
 	console.log('🚀 ~ file: +page.svelte:5 ~ data:', data);
@@ -16,7 +17,7 @@
 <section id="hero" class="relative w-full flex items-center justify-center h-screen">
 	<img
 		class="w-full h-full object-cover absolute inset-0"
-		src={data.settings.image.asset.url}
+		src={urlFor(data.settings.image.asset.url).auto('format').url()}
 		alt="homepage hero" />
 	<div class=" absolute inset-0 bg-gradient-fade" />
 	<h1 class="z-0 w-full flex justify-center lg:grid lg:grid-cols-2 gap-10 lg:text-6xl">
@@ -36,7 +37,9 @@
 
 <section class="grid grid-cols-2">
 	<h1 class="grid place-content-center text-2xl lg:text-5xl">About</h1>
-	<img src={data.settings.founders[0].image.asset.url} alt={data.settings.founders[0].image} />
+	<img
+		src={urlFor(data.settings.founders[0].image.asset.url).size(800, 800).auto('format').url()}
+		alt={data.settings.founders[0].image} />
 </section>
 
 <div class="bg-gradient-3 bg-light">

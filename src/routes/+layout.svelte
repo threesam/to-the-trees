@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import '../app.css';
-	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
 	import { sketch } from '$lib/utils/sketches';
 	import P5 from 'p5-svelte';
 
