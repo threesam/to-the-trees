@@ -6,6 +6,9 @@ export async function load() {
 		image{
 			...,
 			asset->
+		},
+		icons[]{
+			asset->
 		}
 	}`);
 

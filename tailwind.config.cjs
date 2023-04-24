@@ -7,7 +7,8 @@ module.exports = {
 			mono: ['Space Mono', 'monospace']
 		},
 		backgroundImage: {
-			'gradient-fade': 'linear-gradient(90deg, #d7d2c9, #60677a)'
+			'gradient-fade': 'linear-gradient(90deg, #d7d2c9, #60677a)',
+			'gradient-3': 'radial-gradient(circle at top left,rgba(255, 255, 255, 0.5),transparent 100%),radial-gradient(circle at top right,rgba(255, 255, 255, 0.5),transparent 80%),radial-gradient(at bottom left,rgba(255, 0, 255, 0.5),transparent 100%),radial-gradient(at bottom right,rgba(255, 100, 100, 0.5),transparent 70%);',
 		},
 		extend: {
 			colors: {
