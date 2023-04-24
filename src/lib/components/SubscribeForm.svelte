@@ -37,7 +37,11 @@
 	});
 </script>
 
-<form class="flex" action={endpoint} method="post" on:submit|preventDefault={handleSubmit}>
+<form
+	class="flex max-w-full flex-grow"
+	action={endpoint}
+	method="post"
+	on:submit|preventDefault={handleSubmit}>
 	<label for="email">
 		<input
 			type="email"
@@ -49,7 +53,7 @@
 			on:change={handleChange}
 			bind:value={$form.email} />
 	</label>
-	<button class="text-black p-5" type="submit">subscribe</button>
+	<button class="text-black pl-4 lg:pl-5" type="submit">subscribe</button>
 </form>
 {#if isSubmitted}
 	<h5 transition:slide>{message}</h5>

@@ -19,11 +19,11 @@
 	</h1>
 </section>
 
-<section class="grid grid-cols-2">
-	<div class="aspect-square grid place-content-center bg-white">
+<section class="flex flex-col lg:grid lg:grid-cols-2">
+	<div class="aspect-square grid place-content-center bg-white p-5">
 		<SubscribeForm />
 	</div>
-	<div class="aspect-square grid place-content-center">
+	<div class="aspect-square grid place-content-center p-5">
 		<SocialLinks links={data.settings.links} size={60} color="#fff" />
 	</div>
 </section>
@@ -33,6 +33,6 @@
 	<img src={data.settings.image.asset.url} alt={data.settings.image} />
 </section>
 
-<div class="bg-gradient-3 pt-10">
+<div class="bg-gradient-3">
 	<PortableText blocks={data.settings.body} />
 </div>

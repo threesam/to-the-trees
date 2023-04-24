@@ -10,24 +10,11 @@
 	onMount(() => (show = true));
 </script>
 
-<style>
-	.sketch {
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		background: black;
-		z-index: 10;
-	}
-</style>
-
 <main>
 	<slot />
 </main>
 
-<footer class="sketch">
+<footer class="h-screen flex flex-col justify-center items-center relative bg-dark z-10 px-5">
 	{#if show}
 		<div class="absolute inset-0">
 			<P5 {sketch} />
@@ -36,9 +23,9 @@
 	<form
 		method="POST"
 		action="/contact"
-		class="p-10 bg-black z-0 border-2 max-w-sm border-white flex flex-col gap-10 transition-all
-		duration-300">
-		<h4 class="text-6xl tracking-[0.14em]">Contact</h4>
+		class="p-10 bg-black z-0 border-2 w-sm max-w-full border-white flex flex-col gap-10
+		transition-all duration-300">
+		<h4 class="text-6xl tracking-[0.04em] lg:tracking-[0.14em]">Contact</h4>
 		<label for="email">
 			<input
 				class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
