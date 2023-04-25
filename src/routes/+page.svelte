@@ -23,12 +23,13 @@
 		src={urlFor(data.settings.image.asset.url).auto('format').url()}
 		alt="homepage hero" />
 	<div class=" absolute inset-0 bg-gradient-fade opacity-60" />
-	<a
-		href="#subscribe"
-		class="z-0 w-full flex font-display justify-center lg:grid lg:grid-cols-2 gap-10 lg:text-8xl
-		lg:hover:gap-5 transition-all duration-500">
-		<span class="text-light lg:text-right">Laila</span>
-		<span class="text-light lg:text-left">Wolf</span>
+	<a class="z-0 w-full" href="#subscribe">
+		<h1
+			class="w-full flex font-display justify-center lg:grid lg:grid-cols-2 gap-10 lg:text-8xl
+			lg:hover:gap-5 transition-all duration-500">
+			<span class="text-light lg:text-right">Laila</span>
+			<span class="text-light lg:text-left">Wolf</span>
+		</h1>
 	</a>
 </section>
 

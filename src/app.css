@@ -1,15 +1,14 @@
-
-
 @font-face {
 	font-family: 'PoiretOne';
-  font-display: swap;
+	font-display: swap;
 	src: url('$lib/assets/fonts/PoiretOne-Regular.ttf');
 }
 
 @font-face {
 	font-family: 'Montserrat';
-  font-display: swap;
-	src: url('$lib/assets/fonts/Montserrat-VariableFont_wght'), url('$lib/assets/fonts/Montserrat-Italic-VariableFont_wght');
+	font-display: swap;
+	src: url('$lib/assets/fonts/Montserrat-VariableFont_wght'),
+		url('$lib/assets/fonts/Montserrat-Italic-VariableFont_wght');
 }
 
 @tailwind base;
