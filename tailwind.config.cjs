@@ -2,9 +2,9 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
-			display: ['Unica One', 'sans-serif'],
-			sans: ['Vollkorn', 'sans-serif'],
-			mono: ['Space Mono', 'monospace']
+			display: ['PoiretOne', 'monospace'],
+			sans: ['Montserrat', 'sans-serif'],
+			mono: ['monospace']
 		},
 		backgroundImage: {
 			'gradient-fade': 'linear-gradient(180deg, #000, transparent)',
