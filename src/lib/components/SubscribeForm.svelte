@@ -38,7 +38,7 @@
 </script>
 
 <form
-	class="flex flex-col lg:flex-row max-w-full flex-grow"
+	class="flex flex-col lg:flex-row gap-10 lg:gap-0 max-w-full flex-grow"
 	action={endpoint}
 	method="post"
 	on:submit|preventDefault={handleSubmit}>
@@ -53,7 +53,7 @@
 			on:change={handleChange}
 			bind:value={$form.email} />
 	</label>
-	<button class="text-dark p-5 border-2 lg:border-none border-dark lg:pl-5" type="submit">
+	<button class="bg-light text-dark p-5 border-2 lg:border-none border-light lg:pl-5" type="submit">
 		subscribe
 	</button>
 </form>

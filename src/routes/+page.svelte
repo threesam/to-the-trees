@@ -32,12 +32,12 @@
 </section>
 
 <!-- SUBSCRIBE + LINKS -->
-<section class="flex flex-col-reverse lg:grid lg:grid-cols-2">
-	<div class="aspect-square grid place-content-center bg-white p-5">
+<section class="flex flex-col lg:grid lg:grid-cols-2">
+	<div class="aspect-square grid place-content-center bg-dark p-5">
 		<SubscribeForm />
 	</div>
-	<div class="aspect-square grid place-content-center p-5">
-		<SocialLinks {links} size={60} color="#fff" />
+	<div class="aspect-square grid place-content-center p-5 bg-light">
+		<SocialLinks {links} size={60} color="#000" />
 	</div>
 </section>
 
@@ -48,7 +48,7 @@
 
 <!-- ABOUT AUTHOR - HEADER -->
 <section class="grid grid-cols-2">
-	<h1 class="grid place-content-center text-2xl lg:text-5xl">About</h1>
+	<h1 class="grid place-content-center text-2xl lg:text-5xl order-last">About</h1>
 	<img
 		src={urlFor(data.settings.founders[0].image.asset.url).size(800, 800).auto('format').url()}
 		alt={data.settings.founders[0].image} />
