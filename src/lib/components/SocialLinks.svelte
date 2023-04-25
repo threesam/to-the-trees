@@ -33,10 +33,11 @@
 </script>
 
 {#if links?.length}
-	<div>
+	<div class="flex justify-between items-center gap-5">
 		{#each links as { href, title }, i}
 			<a
 				style={`color: ${color};`}
+				class="transition flex items-center duration-300 hover:scale-90"
 				in:scale={{ delay: (i + 1) * 100 + 500, start: 0 }}
 				{href}
 				aria-label={title}
@@ -46,24 +47,3 @@
 		{/each}
 	</div>
 {/if}
-
-<style>
-	div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 2rem;
-	}
-	a {
-		color: var(--textColor);
-		transition: all 0.4s;
-		margin: 0;
-		display: flex;
-		align-items: center;
-	}
-	a:hover {
-		/* color: var(--primary); */
-		/* color: var(--yellow); */
-		transform: scale(0.9);
-	}
-</style>
