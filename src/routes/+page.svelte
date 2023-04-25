@@ -23,17 +23,18 @@
 		src={urlFor(data.settings.image.asset.url).auto('format').url()}
 		alt="homepage hero" />
 	<div class=" absolute inset-0 bg-gradient-fade opacity-60" />
-	<h1
+	<a
+		href="#subscribe"
 		class="z-0 w-full flex font-display justify-center lg:grid lg:grid-cols-2 gap-10 lg:text-8xl
 		lg:hover:gap-5 transition-all duration-500">
 		<span class="text-light lg:text-right">Laila</span>
 		<span class="text-light lg:text-left">Wolf</span>
-	</h1>
+	</a>
 </section>
 
 <!-- SUBSCRIBE + LINKS -->
 <section class="flex flex-col lg:grid lg:grid-cols-2">
-	<div class="aspect-square grid place-content-center bg-dark p-5">
+	<div id="subscribe" class="aspect-square grid place-content-center bg-dark p-5">
 		<SubscribeForm />
 	</div>
 	<div class="aspect-square grid place-content-center p-5 bg-light">
@@ -47,11 +48,13 @@
 </div>
 
 <!-- ABOUT AUTHOR - HEADER -->
-<section class="grid grid-cols-2">
-	<h1 class="grid place-content-center text-2xl lg:text-5xl order-last">About</h1>
+<section class="grid grid-cols-2 w-full">
 	<img
-		src={urlFor(data.settings.founders[0].image.asset.url).size(800, 800).auto('format').url()}
+		class="w-full h-full"
+		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 		alt={data.settings.founders[0].image} />
+	<h1 class="grid place-content-center text-2xl lg:text-5xl">About</h1>
+
 </section>
 
 <!-- ABOUT AUTHOR - TEXT -->
