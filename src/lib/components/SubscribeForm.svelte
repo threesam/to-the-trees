@@ -38,7 +38,7 @@
 </script>
 
 <form
-	class="flex max-w-full flex-grow"
+	class="flex flex-col lg:flex-row max-w-full flex-grow"
 	action={endpoint}
 	method="post"
 	on:submit|preventDefault={handleSubmit}>
@@ -48,12 +48,14 @@
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="p-5 border-2 border-dark placeholder:text-light bg-dark text-light focus:outline-none
-			focus:border-yellow-600"
+			class="p-5 w-full bg-dark text-white border-2 border-light focus:outline-none
+			focus:border-yellow-600 placeholder:text-light"
 			on:change={handleChange}
 			bind:value={$form.email} />
 	</label>
-	<button class="text-black pl-4 lg:pl-5" type="submit">subscribe</button>
+	<button class="text-dark p-5 border-2 lg:border-none border-dark lg:pl-5" type="submit">
+		subscribe
+	</button>
 </form>
 {#if isSubmitted}
 	<h5 transition:slide>{message}</h5>

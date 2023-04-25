@@ -6,7 +6,7 @@
 
 	import { scale } from 'svelte/transition';
 
-	export let color = 'var(--background)';
+	export let color = '#b7c6af';
 	export let size = 69;
 	export let links: Link[] = [];
 

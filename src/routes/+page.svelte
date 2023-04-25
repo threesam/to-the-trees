@@ -3,7 +3,9 @@
 	import { urlFor } from '$lib/utils/sanity';
 
 	export let data;
-	console.log('🚀 ~ file: +page.svelte:5 ~ data:', data);
+	const links = data.settings.founders[0].links.filter(
+		({ href }) => !new URL(href).hostname.startsWith(data.settings.hostname)
+	);
 
 	import { onMount } from 'svelte';
 	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
@@ -33,7 +35,7 @@
 		<SubscribeForm />
 	</div>
 	<div class="aspect-square grid place-content-center p-5">
-		<SocialLinks links={data.settings.founders[0].links} size={60} color="#fff" />
+		<SocialLinks {links} size={60} color="#fff" />
 	</div>
 </section>
 
