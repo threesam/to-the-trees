@@ -1,7 +1,7 @@
 export const sketch = (p5) => {
 	const points = [];
 
-	const clientHeight = p5.windowHeight;
+	const clientHeight = p5.windowHeight + 200;
 
 	p5.setup = () => {
 		p5.createCanvas(p5.windowWidth, clientHeight);
