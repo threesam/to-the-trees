@@ -10,6 +10,7 @@
 	import { onMount } from 'svelte';
 	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import Sketch from '$lib/components/Sketch.svelte';
 
 	let show = false;
 
@@ -33,16 +34,6 @@
 	</a>
 </section>
 
-<!-- SUBSCRIBE + LINKS -->
-<section class="flex flex-col lg:grid lg:grid-cols-2 w-full max-w-screen">
-	<div id="subscribe" class="aspect-square grid place-content-center bg-dark">
-		<SubscribeForm />
-	</div>
-	<div class="aspect-square grid place-content-center bg-light">
-		<SocialLinks {links} size={60} color="#000" />
-	</div>
-</section>
-
 <!-- ABOUT SITE -->
 <div class="bg-gradient-3 bg-light py-10 lg:py-20">
 	<PortableText blocks={data.settings.body} />
@@ -51,10 +42,17 @@
 <!-- ABOUT AUTHOR - HEADER -->
 <section class="grid grid-cols-2 w-full">
 	<img
-		class="w-full h-full border-2 border-dark"
+		class="w-full h-full border-2 border-dark lg:bprder"
 		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 		alt={data.settings.founders[0].image} />
-	<h1 class="grid place-content-center text-4xl lg:text-7xl">About</h1>
+	<div class="relative grid place-content-center">
+		<h1 class="z-10 grid place-content-center text-4xl lg:text-7xl">About</h1>
+		{#if show}
+			<div class="absolute inset-0 overflow-hidden rotate-180">
+				<Sketch />
+			</div>
+		{/if}
+	</div>
 
 </section>
 
@@ -62,3 +60,21 @@
 <div class="bg-gradient-3 bg-light py-10 lg:py-5">
 	<PortableText blocks={data.settings.founders[0].bio} />
 </div>
+
+<!-- SUBSCRIBE + LINKS -->
+<footer>
+	<section class="flex flex-col-reverse lg:grid lg:grid-cols-2 w-full max-w-screen relative">
+		<div id="subscribe" class="aspect-square grid place-content-center relative">
+			<Sketch />
+			<div class="z-0">
+				<SubscribeForm />
+			</div>
+		</div>
+		<div class="aspect-square grid place-content-center bg-light">
+			<SocialLinks {links} size={60} color="#000" />
+		</div>
+	</section>
+	<p class="w-full text-center bg-black/70 p-5 text-light">
+		© laila wolf 2018-{new Date().getFullYear()}
+	</p>
+</footer>
