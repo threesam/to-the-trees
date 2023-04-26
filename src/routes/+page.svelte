@@ -34,7 +34,7 @@
 </section>
 
 <!-- SUBSCRIBE + LINKS -->
-<section class="flex flex-col lg:grid lg:grid-cols-2 w-full">
+<section class="flex flex-col lg:grid lg:grid-cols-2 w-full max-w-screen">
 	<div id="subscribe" class="aspect-square grid place-content-center bg-dark p-5">
 		<SubscribeForm />
 	</div>
