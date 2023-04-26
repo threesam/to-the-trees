@@ -38,7 +38,7 @@
 	<div id="subscribe" class="lg:aspect-square grid place-content-center bg-dark py-20">
 		<SubscribeForm />
 	</div>
-	<div class="lg:aspect-square grid place-content-center py-20 bg-light">
+	<div class="lg:aspect-square grid place-content-center py-32 bg-light">
 		<SocialLinks {links} size={60} color="#000" />
 	</div>
 </section>
