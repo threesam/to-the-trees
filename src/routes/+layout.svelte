@@ -25,7 +25,8 @@
 	{/if}
 	<form
 		method="POST"
-		action="/contact"
+		data-netlify="true"
+		netlify-honeypot="bot-field"
 		class="p-5 lg:p-10 bg-black z-0 border-2 w-96 max-w-full border-white flex flex-col gap-5
 		lg:gap-10 transition-all duration-300">
 		<h4 class="text-7xl tracking-[0.15em]">Contact</h4>

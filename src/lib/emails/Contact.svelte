@@ -5,6 +5,6 @@
 </script>
 
 <Html lang="en">
-	<Text>{message}!</Text>
+	<Text>{message}</Text>
 	<Hr />
 </Html>
