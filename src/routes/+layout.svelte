@@ -19,7 +19,7 @@
 
 <footer class="h-screen flex flex-col justify-center items-center relative bg-dark z-10 px-5">
 	{#if show}
-		<div class="absolute inset-0 h-screen">
+		<div class="absolute inset-0 h-screen overflow-hidden">
 			<P5 {sketch} />
 		</div>
 	{/if}
