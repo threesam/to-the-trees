@@ -31,7 +31,7 @@
 		<h4 class="text-7xl tracking-[0.15em]">Contact</h4>
 		<label for="email">
 			<input
-				class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
+				class="p-5 w-full bg-black rounded-none text-white border-2 border-white focus:outline-none
 				focus:border-yellow-600 placeholder:text-light"
 				placeholder="enter email"
 				bind:value={email}
@@ -41,7 +41,7 @@
 		</label>
 		<label for="name">
 			<input
-				class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
+				class="p-5 w-full bg-black rounded-none text-white border-2 border-white focus:outline-none
 				focus:border-yellow-600 placeholder:text-light"
 				placeholder="enter name"
 				bind:value={name}
@@ -50,7 +50,7 @@
 				id="contact-name" />
 		</label>
 		<textarea
-			class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
+			class="p-5 w-full bg-black rounded-none text-white border-2 border-white focus:outline-none
 			focus:border-yellow-600 placeholder:text-light"
 			name="message"
 			placeholder="enter message"

@@ -48,7 +48,7 @@
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="p-5 w-full bg-dark text-white border-2 border-light focus:outline-none
+			class="p-5 w-full bg-dark rounded-none text-white border-2 border-light focus:outline-none
 			focus:border-yellow-600 placeholder:text-light"
 			on:change={handleChange}
 			bind:value={$form.email} />
