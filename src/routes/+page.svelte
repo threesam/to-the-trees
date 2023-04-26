@@ -54,7 +54,7 @@
 		class="w-full h-full"
 		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 		alt={data.settings.founders[0].image} />
-	<h1 class="grid place-content-center text-2xl lg:text-5xl">About</h1>
+	<h1 class="grid place-content-center text-4xl lg:text-7xl">About</h1>
 
 </section>
 
