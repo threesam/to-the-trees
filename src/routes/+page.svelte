@@ -35,10 +35,10 @@
 
 <!-- SUBSCRIBE + LINKS -->
 <section class="flex flex-col lg:grid lg:grid-cols-2 w-full max-w-screen">
-	<div id="subscribe" class="lg:aspect-square grid place-content-center bg-dark py-20">
+	<div id="subscribe" class="aspect-square grid place-content-center bg-dark">
 		<SubscribeForm />
 	</div>
-	<div class="lg:aspect-square grid place-content-center py-32 bg-light">
+	<div class="aspect-square grid place-content-center bg-light">
 		<SocialLinks {links} size={60} color="#000" />
 	</div>
 </section>
