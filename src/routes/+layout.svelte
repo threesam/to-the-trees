@@ -25,7 +25,6 @@
 	{/if}
 	<form
 		name="contact"
-		method="POST"
 		netlify
 		class="p-5 lg:p-10 bg-black z-0 border-2 w-96 max-w-full border-white flex flex-col gap-5
 		lg:gap-10 transition-all duration-300">
