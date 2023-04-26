@@ -6,6 +6,10 @@
 
 	let show;
 
+	let name = '';
+	let email = '';
+	let message = '';
+
 	onMount(() => (show = true));
 </script>
 
@@ -30,15 +34,27 @@
 				class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
 				focus:border-yellow-600 placeholder:text-light"
 				placeholder="enter email"
+				bind:value={email}
 				type="email"
 				name="email"
 				id="contact-email" />
+		</label>
+		<label for="name">
+			<input
+				class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
+				focus:border-yellow-600 placeholder:text-light"
+				placeholder="enter name"
+				bind:value={name}
+				type="name"
+				name="name"
+				id="contact-name" />
 		</label>
 		<textarea
 			class="p-5 w-full bg-black text-white border-2 border-white focus:outline-none
 			focus:border-yellow-600 placeholder:text-light"
 			name="message"
 			placeholder="enter message"
+			bind:value={message}
 			id="contact-message"
 			cols="30"
 			rows="5" />
