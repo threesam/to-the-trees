@@ -46,7 +46,11 @@
 		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 		alt={data.settings.founders[0].image} />
 	<div class="relative grid place-content-center">
-		<h1 class="z-10 grid place-content-center text-4xl lg:text-7xl">About</h1>
+		<h2
+			class="z-10 grid place-content-center text-4xl lg:text-7xl p-5 lg:p-10 bg-dark border-2
+			border-light">
+			About
+		</h2>
 		{#if show}
 			<div class="absolute inset-0 overflow-hidden rotate-180">
 				<Sketch />
