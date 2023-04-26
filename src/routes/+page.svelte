@@ -51,7 +51,7 @@
 <!-- ABOUT AUTHOR - HEADER -->
 <section class="grid grid-cols-2 w-full">
 	<img
-		class="w-full h-full"
+		class="w-full h-full border-2 border-dark"
 		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 		alt={data.settings.founders[0].image} />
 	<h1 class="grid place-content-center text-4xl lg:text-7xl">About</h1>
