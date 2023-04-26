@@ -44,7 +44,7 @@
 </section>
 
 <!-- ABOUT SITE -->
-<div class="bg-gradient-3 bg-light lg:py-24">
+<div class="bg-gradient-3 bg-light py-12 lg:py-24">
 	<PortableText blocks={data.settings.body} />
 </div>
 
