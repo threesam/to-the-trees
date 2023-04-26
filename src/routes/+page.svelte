@@ -44,7 +44,7 @@
 </section>
 
 <!-- ABOUT SITE -->
-<div class="bg-gradient-3 bg-light py-12 lg:py-24">
+<div class="bg-gradient-3 bg-light py-10 lg:py-20">
 	<PortableText blocks={data.settings.body} />
 </div>
 
@@ -59,6 +59,6 @@
 </section>
 
 <!-- ABOUT AUTHOR - TEXT -->
-<div class="bg-gradient-3 bg-light">
+<div class="bg-gradient-3 bg-light py-10 lg:py-5">
 	<PortableText blocks={data.settings.founders[0].bio} />
 </div>
