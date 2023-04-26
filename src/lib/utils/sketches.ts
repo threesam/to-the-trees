@@ -1,15 +1,13 @@
 export const sketch = (p5) => {
 	const points = [];
 
-	const clientHeight = p5.windowHeight + 200;
-
 	p5.setup = () => {
-		p5.createCanvas(p5.windowWidth, clientHeight);
+		p5.createCanvas(width, height);
 
-		for (let i = 0; i < 500; i++) {
+		for (let i = 0; i < 200; i++) {
 			const size = p5.random(5, 25);
-			const x = p5.random(p5.windowWidth - size);
-			const y = p5.random(clientHeight);
+			const x = p5.random(width - size);
+			const y = p5.random(height);
 			const color = p5.random() > 0.5 ? [183, 198, 175] : [56, 80, 69];
 
 			let collision;
@@ -32,7 +30,7 @@ export const sketch = (p5) => {
 		for (const point of points) {
 			const { x, y, size, color } = point;
 			if (y < -size) {
-				point.y = clientHeight + size;
+				point.y = height + size;
 			} else {
 				point.y -= 1;
 			}
