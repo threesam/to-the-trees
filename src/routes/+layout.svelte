@@ -13,7 +13,7 @@
 	onMount(() => (show = true));
 </script>
 
-<main>
+<main class="max-w-screen">
 	<slot />
 </main>
 
