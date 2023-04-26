@@ -60,4 +60,7 @@
 			rows="3" />
 		<button class="p-5 bg-white text-black uppercase" type="submit">Submit</button>
 	</form>
+	<p class="z-0 absolute bottom-0 w-full text-center bg-black/70 p-5 text-light">
+		© laila wolf 2018-{new Date().getFullYear()}
+	</p>
 </footer>
