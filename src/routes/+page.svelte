@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PortableText from '$lib/components/PortableText.svelte';
+	import SEO from 'svelte-seo'
 	import Sketch from '$lib/components/Sketch.svelte';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
@@ -13,6 +14,17 @@
 		({ href }: { href: string }) => !new URL(href).hostname.startsWith(data.settings.hostname)
 	);
 </script>
+
+<SEO
+	title="Laila Wolf"
+	description={data.settings.description ?? "The skinny on Laila Wolf"}
+	openGraph={{
+		title:"Laila Wolf",
+		description:data.settings.description ?? "The skinny on Laila Wolf",
+		type: 'website',
+		images: [{url: data.settings.image.asset.url}]
+	}}
+/>
 
 <!-- HERO -->
 <section id="hero" class="relative w-full flex items-center justify-center h-screen">
