@@ -1,11 +1,19 @@
-<script>
-	let width;
-	let height;
-
+<script lang="ts">
 	import P5 from 'p5-svelte';
+	import type { Sketch } from 'p5-svelte';
 
-	const sketch = (p5) => {
-		const points = [];
+	let width: number;
+	let height: number;
+
+	type Point = {
+		x: number;
+		y: number;
+		size: number;
+		color: number[];
+	};
+
+	const sketch: Sketch = (p5) => {
+		const points: Point[] = [];
 
 		p5.setup = () => {
 			p5.createCanvas(width, height);
@@ -41,7 +49,7 @@
 					point.y -= 1;
 				}
 
-				p5.stroke(...color);
+				p5.stroke(color[0], color[1], color[2]);
 				p5.fill(17, 17, 17);
 				p5.strokeWeight(2);
 				p5.circle(x, y, size);

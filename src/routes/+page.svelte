@@ -1,20 +1,17 @@
-<script>
+<script lang="ts">
 	import PortableText from '$lib/components/PortableText.svelte';
-	import { urlFor } from '$lib/utils/sanity';
-
-	export let data;
-	const links = data.settings.founders[0].links.filter(
-		({ href }) => !new URL(href).hostname.startsWith(data.settings.hostname)
-	);
-
-	import { onMount } from 'svelte';
-	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
-	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import Sketch from '$lib/components/Sketch.svelte';
+	import SocialLinks from '$lib/components/SocialLinks.svelte';
+	import SubscribeForm from '$lib/components/SubscribeForm.svelte';
+	import { urlFor } from '$lib/utils/sanity';
+	import type { PageData } from './$types';
 
-	let show = false;
+	export let data: PageData;
 
-	onMount(() => (show = true));
+	// filter out circular reference to this page
+	const links = data.settings.founders[0].links.filter(
+		({ href }: { href: string }) => !new URL(href).hostname.startsWith(data.settings.hostname)
+	);
 </script>
 
 <!-- HERO -->
@@ -51,11 +48,9 @@
 			border-light">
 			About
 		</h2>
-		{#if show}
-			<div class="absolute inset-0 overflow-hidden rotate-180">
-				<Sketch />
-			</div>
-		{/if}
+		<div class="absolute inset-0 overflow-hidden rotate-180">
+			<Sketch />
+		</div>
 	</div>
 
 </section>
@@ -78,7 +73,7 @@
 			<SocialLinks {links} size={60} color="#000" />
 		</div>
 	</section>
-	<p class="w-full text-center bg-black/70 p-5 text-light">
-		© laila wolf 2018-{new Date().getFullYear()}
+	<p class="w-full text-center bg-black/70 p-5 text-light border-t-2 border-light">
+		© laila wolf 2013-{new Date().getFullYear()}
 	</p>
 </footer>
