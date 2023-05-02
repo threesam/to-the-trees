@@ -1,22 +1,22 @@
 <script lang="ts">
 	interface Link {
-		title: string;
-		href: string;
+		title: string
+		href: string
 	}
 
-	import { scale } from 'svelte/transition';
+	import { scale } from 'svelte/transition'
 
-	export let color = '#b7c6af';
-	export let size = 69;
-	export let links: Link[] = [];
+	export let color = '#b7c6af'
+	export let size = 69
+	export let links: Link[] = []
 
-	import Facebook from './icons/Facebook.svelte';
-	import Imdb from './icons/Imdb.svelte';
-	import Instagram from './icons/Instagram.svelte';
-	import LinkedIn from './icons/LinkedIn.svelte';
-	import TikTok from './icons/TikTok.svelte';
-	import Website from './icons/Website.svelte';
-	import Youtube from './icons/Youtube.svelte';
+	import Facebook from './icons/Facebook.svelte'
+	import Imdb from './icons/Imdb.svelte'
+	import Instagram from './icons/Instagram.svelte'
+	import LinkedIn from './icons/LinkedIn.svelte'
+	import TikTok from './icons/TikTok.svelte'
+	import Website from './icons/Website.svelte'
+	import Youtube from './icons/Youtube.svelte'
 
 	const options = [
 		{ title: 'facebook', component: Facebook },
@@ -26,18 +26,18 @@
 		{ title: 'tiktok', component: TikTok },
 		{ title: 'website', component: Website },
 		{ title: 'youtube', component: Youtube }
-	];
+	]
 
 	const getIconComponent = (title: string) =>
-		options.find((option) => option.title === title)?.component;
+		options.find((option) => option.title === title)?.component
 </script>
 
 {#if links?.length}
-	<div class="flex justify-between items-center gap-5">
+	<div class="flex items-center justify-between gap-5">
 		{#each links as { href, title }, i}
 			<a
 				style={`color: ${color};`}
-				class="transition flex items-center duration-300 hover:scale-90"
+				class="flex items-center transition duration-300 hover:scale-90"
 				in:scale={{ delay: (i + 1) * 100 + 500, start: 0 }}
 				{href}
 				aria-label={title}

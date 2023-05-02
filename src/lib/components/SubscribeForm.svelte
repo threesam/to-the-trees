@@ -1,9 +1,9 @@
 <script>
-	export let endpoint = '/subscribe.js';
-	import { slide } from 'svelte/transition';
-	import { createForm } from 'svelte-forms-lib';
-	$: isSubmitted = false;
-	$: message = '';
+	export let endpoint = '/subscribe.js'
+	import { slide } from 'svelte/transition'
+	import { createForm } from 'svelte-forms-lib'
+	$: isSubmitted = false
+	$: message = ''
 	const { form, handleChange, handleSubmit } = createForm({
 		initialValues: {
 			email: ''
@@ -13,47 +13,49 @@
 				const response = await fetch(endpoint, {
 					method: 'POST',
 					body: JSON.stringify({ email: values.email })
-				});
-				console.log('response', response);
+				})
+				console.log('response', response)
 				if (response.status == 400) {
-					message = 'Already Subscribed!';
+					message = 'Already Subscribed!'
 				}
 				if (response.status == 200) {
-					message = 'Thanks for Subscribing!';
+					message = 'Thanks for Subscribing!'
 				}
 
-				message = 'This absolutely does not work yet';
+				message = 'This absolutely does not work yet'
 
 				// const json = await response.json()
-				isSubmitted = true;
+				isSubmitted = true
 				setTimeout(() => {
-					$form.email = '';
-					isSubmitted = false;
-				}, 3000);
+					$form.email = ''
+					isSubmitted = false
+				}, 3000)
 			} catch (error) {
-				console.error(error);
+				console.error(error)
 			}
 		}
-	});
+	})
 </script>
 
 <form
-	class="flex flex-col lg:flex-row gap-10 lg:gap-0 max-w-full flex-grow"
+	class="flex max-w-full flex-grow flex-col gap-10 lg:flex-row lg:gap-0"
 	action={endpoint}
 	method="post"
-	on:submit|preventDefault={handleSubmit}>
+	on:submit|preventDefault={handleSubmit}
+>
 	<label for="email">
 		<input
 			type="email"
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="p-5 w-full bg-dark rounded-none text-white border-2 border-light focus:outline-none
-			focus:border-yellow-600 placeholder:text-light focus:placeholder:text-light/60"
+			class="w-full rounded-none border-2 border-light bg-dark p-5 text-white placeholder:text-light
+			focus:border-yellow-600 focus:outline-none focus:placeholder:text-light/60"
 			on:change={handleChange}
-			bind:value={$form.email} />
+			bind:value={$form.email}
+		/>
 	</label>
-	<button class="bg-light text-dark p-5 border-2 lg:border-none border-light lg:pl-5" type="submit">
+	<button class="border-2 border-light bg-light p-5 text-dark lg:border-none lg:pl-5" type="submit">
 		subscribe
 	</button>
 </form>

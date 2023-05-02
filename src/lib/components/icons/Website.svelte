@@ -1,7 +1,7 @@
 <script>
-	export let width = 30;
-	export let height = 30;
-	export let color = '#000000';
+	export let width = 30
+	export let height = 30
+	export let color = '#000000'
 </script>
 
 <svg
@@ -10,7 +10,8 @@
 	xmlns="http://www.w3.org/2000/svg"
 	{width}
 	{height}
-	class="hover:text-primary transition duration-300">
+	class="transition duration-300 hover:text-primary"
+>
 	<path
 		fill-rule="evenodd"
 		clip-rule="evenodd"
@@ -18,5 +19,6 @@
 		10-3.293-3.293L6.854 4.854l-.708-.708L9.318.975zm1.536 3.879l-6 6-.708-.708 6-6 .708.708zm-6
 		2l-3.172 3.171a2.329 2.329 0 003.293 3.293l3.171-3.172.708.708-3.172 3.171A3.328 3.328 0 11.975
 		9.318l3.171-3.172.708.708z"
-		fill="currentColor" />
+		fill="currentColor"
+	/>
 </svg>

@@ -1,12 +1,12 @@
-import { env } from '$env/dynamic/private';
+import { env } from '$env/dynamic/private'
 
-import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer'
 // import { render } from 'svelte-email';
 // import Contact from '$lib/emails/Contact.svelte';
 
 export async function POST({ request }) {
-	const values = await request.formData();
-	console.log('🚀 ~ file: +server.ts:7 ~ POST ~ values:', values);
+	const values = await request.formData()
+	console.log('🚀 ~ file: +server.ts:7 ~ POST ~ values:', values)
 
 	const transporter = nodemailer.createTransport({
 		host: env.SMTP_SERVER,
@@ -16,7 +16,7 @@ export async function POST({ request }) {
 			user: env.SMTP_USERNAME,
 			pass: env.SMTP_PASSWORD
 		}
-	});
+	})
 
 	const options = {
 		from: values.get('email'),
@@ -26,7 +26,7 @@ export async function POST({ request }) {
 			<p>name: ${values.get('name')}</p>
 			<p>message: ${values.get('message')}</p>
 		</html>`
-	};
+	}
 
-	transporter.sendMail(options);
+	transporter.sendMail(options)
 }

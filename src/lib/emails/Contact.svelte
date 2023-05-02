@@ -1,7 +1,7 @@
 <script>
-	import { Hr, Html, Text } from 'svelte-email';
+	import { Hr, Html, Text } from 'svelte-email'
 
-	export let message = '';
+	export let message = ''
 </script>
 
 <Html lang="en">

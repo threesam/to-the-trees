@@ -1,4 +1,4 @@
-import { client } from '$lib/utils/sanity';
+import { client } from '$lib/utils/sanity'
 
 export async function load() {
 	const settings = await client.fetch(`*[_type == 'siteSettings' && hostname == 'lailawolf'][0]{
@@ -17,9 +17,9 @@ export async function load() {
 				asset->
 			}
 		}
-	}`);
+	}`)
 
 	return {
 		settings
-	};
+	}
 }

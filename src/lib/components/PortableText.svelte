@@ -1,7 +1,11 @@
 <script lang="ts">
-	export let blocks: any[] = [];
-	import { PortableText } from '@portabletext/svelte';
+	export let blocks: any[] = []
+	import { PortableText } from '@portabletext/svelte'
 </script>
+
+<section class="portable-text mx-auto max-w-4xl p-5">
+	<PortableText value={blocks} />
+</section>
 
 <style lang="scss">
 	:global {
@@ -30,12 +34,8 @@
 			}
 
 			blockquote {
-				@apply p-5 bg-light text-dark border-2 border-dark;
+				@apply border-2 border-dark bg-light p-5 text-dark;
 			}
 		}
 	}
-</style>
-
-<section class="portable-text mx-auto max-w-4xl p-5">
-	<PortableText value={blocks} />
 </section>
