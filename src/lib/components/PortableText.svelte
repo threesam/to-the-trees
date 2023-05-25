@@ -10,8 +10,6 @@
 <style lang="scss">
 	:global {
 		.portable-text {
-			@apply text-black;
-
 			h1,
 			h2,
 			h3,
@@ -19,6 +17,8 @@
 			h5 {
 				padding-bottom: 0.5rem;
 				font-weight: 800;
+
+				@apply text-pink-100;
 			}
 			ul,
 			p {
@@ -26,16 +26,16 @@
 			}
 
 			a {
-				@apply underline underline-offset-4;
+				@apply border-b-2 border-pink-200;
 
 				&:hover {
-					@apply text-green-300 underline-offset-2 transition-all;
+					@apply border-transparent text-pink-200 transition-all duration-200;
 				}
 			}
 
 			blockquote {
-				@apply border-2 border-dark bg-light p-5 text-dark;
+				@apply border-dark bg-light text-dark border-2 p-5;
 			}
 		}
 	}
-</section>
+</style>

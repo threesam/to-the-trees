@@ -33,10 +33,10 @@
 		src={urlFor(data.settings.image.asset.url).auto('format').url()}
 		alt="homepage hero"
 	/>
-	<div class=" absolute inset-0 bg-gradient-fade opacity-60" />
+	<div class=" bg-gradient-fade absolute inset-0 opacity-60" />
 	<a class="z-0 w-full" href="#subscribe">
 		<h1
-			class="flex w-full justify-center gap-10 font-display font-bold transition-all duration-500
+			class="font-display flex w-full justify-center gap-10 font-bold transition-all duration-500
 			lg:grid lg:grid-cols-2 lg:text-8xl lg:hover:gap-5"
 		>
 			<span class="text-light lg:text-right">Laila</span>
@@ -46,20 +46,20 @@
 </section>
 
 <!-- ABOUT SITE -->
-<div class="bg-light bg-gradient-3 py-10 lg:py-20">
+<div class="bg-gradient-3 text-dark py-10 lg:py-20">
 	<PortableText blocks={data.settings.body} />
 </div>
 
 <!-- ABOUT AUTHOR - HEADER -->
 <section class="grid w-full grid-cols-2">
 	<img
-		class="lg:bprder h-full w-full border-2 border-dark"
+		class="lg:bprder border-dark h-full w-full border-2 grayscale"
 		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 		alt={data.settings.founders[0].image}
 	/>
 	<div class="relative grid place-content-center">
 		<h2
-			class="z-10 grid place-content-center border-2 border-light bg-dark p-5 text-4xl lg:p-10
+			class="bg-dark z-10 grid place-content-center p-5 text-4xl shadow-md shadow-pink-200 lg:p-10
 			lg:text-7xl"
 		>
 			About
@@ -71,7 +71,7 @@
 </section>
 
 <!-- ABOUT AUTHOR - TEXT -->
-<div class="bg-light bg-gradient-3 py-10 lg:py-5">
+<div class="text-light bg-gradient-3 py-10 lg:py-5">
 	<PortableText blocks={data.settings.founders[0].bio} />
 </div>
 
@@ -84,11 +84,11 @@
 				<SubscribeForm />
 			</div>
 		</div>
-		<div class="grid aspect-square place-content-center bg-light">
+		<div class="bg-light grid aspect-square place-content-center">
 			<SocialLinks {links} size={60} color="#000" />
 		</div>
 	</section>
-	<p class="w-full border-t-2 border-light bg-black/70 p-5 text-center text-light">
+	<p class="border-light text-light w-full border-t-2 bg-black/70 p-5 text-center">
 		© laila wolf 2013-{new Date().getFullYear()}
 	</p>
 </footer>

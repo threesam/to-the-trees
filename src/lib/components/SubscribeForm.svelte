@@ -49,13 +49,13 @@
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="w-full rounded-none border-2 border-light bg-dark p-5 text-white placeholder:text-light
-			focus:border-yellow-600 focus:outline-none focus:placeholder:text-light/60"
+			class="border-light bg-dark placeholder:text-light focus:placeholder:text-light/60 w-full rounded-none border-2 p-5
+			text-white focus:border-pink-300 focus:outline-none"
 			on:change={handleChange}
 			bind:value={$form.email}
 		/>
 	</label>
-	<button class="border-2 border-light bg-light p-5 text-dark lg:border-none lg:pl-5" type="submit">
+	<button class="border-light bg-light text-dark border-2 p-5 lg:border-none lg:pl-5" type="submit">
 		subscribe
 	</button>
 </form>
