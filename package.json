@@ -12,6 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@mailchimp/mailchimp_marketing": "^3.0.80",
 		"@portabletext/svelte": "2.0.0",
 		"@sanity/client": "5.4.2",
 		"@sanity/image-url": "1.0.2",
