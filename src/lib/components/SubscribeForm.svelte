@@ -52,7 +52,7 @@
 			bind:value={$form.email}
 		/>
 		{#if isSubmitted}
-			<span class="absolute -bottom-8 left-0" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
+			<span class="bg-dark absolute -bottom-8 left-0" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
 				>{message}</span
 			>
 		{/if}
