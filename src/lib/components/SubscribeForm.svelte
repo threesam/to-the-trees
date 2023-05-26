@@ -1,6 +1,6 @@
 <script>
-	export let endpoint = '/subscribe.js'
-	import { slide } from 'svelte/transition'
+	export let endpoint = '/api/subscribe'
+	import { fly } from 'svelte/transition'
 	import { createForm } from 'svelte-forms-lib'
 	$: isSubmitted = false
 	$: message = ''
@@ -14,15 +14,12 @@
 					method: 'POST',
 					body: JSON.stringify({ email: values.email })
 				})
-				console.log('response', response)
-				if (response.status == 400) {
-					message = 'Already Subscribed!'
-				}
-				if (response.status == 200) {
-					message = 'Thanks for Subscribing!'
-				}
 
-				message = 'This absolutely does not work yet'
+				if (response.status === 200) {
+					message = 'Thanks for Subscribing!'
+				} else {
+					message = 'Uh oh, error'
+				}
 
 				// const json = await response.json()
 				isSubmitted = true
@@ -43,7 +40,7 @@
 	method="post"
 	on:submit|preventDefault={handleSubmit}
 >
-	<label for="email">
+	<label class="relative" for="email">
 		<input
 			type="email"
 			name="email"
@@ -54,11 +51,13 @@
 			on:change={handleChange}
 			bind:value={$form.email}
 		/>
+		{#if isSubmitted}
+			<span class="absolute -bottom-8 left-0" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
+				>{message}</span
+			>
+		{/if}
 	</label>
 	<button class="border-light bg-light text-dark border-2 p-5 lg:border-none lg:pl-5" type="submit">
 		subscribe
 	</button>
 </form>
-{#if isSubmitted}
-	<h5 transition:slide>{message}</h5>
-{/if}
