@@ -26,10 +26,10 @@
 			}
 
 			a {
-				@apply border-b-2 border-pink-200;
+				@apply border-b-2 border-pink-200 transition-all duration-100;
 
 				&:hover {
-					@apply border-transparent text-pink-200 transition-all duration-200;
+					@apply border-transparent pb-1 text-pink-200;
 				}
 			}
 
