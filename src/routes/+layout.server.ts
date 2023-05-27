@@ -15,7 +15,11 @@ export async function load() {
 			image{
 				...,
 				asset->
-			}
+			},
+			imageGallery[]{
+				...
+				asset->
+			},
 		}
 	}`)
 

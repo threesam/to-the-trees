@@ -3,7 +3,7 @@
 	import { PortableText } from '@portabletext/svelte'
 </script>
 
-<section class="portable-text mx-auto max-w-4xl p-5">
+<section class="portable-text mx-auto max-w-4xl">
 	<PortableText value={blocks} />
 </section>
 
@@ -34,7 +34,7 @@
 			}
 
 			blockquote {
-				@apply border-dark text-dark border-2 bg-gray-300 p-5;
+				@apply border-dark text-dark border-2 bg-gray-300 p-5 text-sm md:text-lg;
 			}
 		}
 	}

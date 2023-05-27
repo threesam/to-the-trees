@@ -8,6 +8,7 @@
 	import type { PageData } from './$types'
 
 	export let data: PageData
+	console.log('data: ', data.settings.founders[0].imageGallery)
 
 	// filter out circular reference to this page
 	const links = data.settings.founders[0].links.filter(
@@ -35,39 +36,45 @@
 />
 
 <!-- HERO -->
-<section id="hero" class="relative flex h-screen w-full items-center justify-center">
-	<img
-		class="absolute inset-0 h-full w-full object-cover"
-		src={urlFor(data.settings.image.asset.url).auto('format').url()}
-		alt="homepage hero"
-	/>
+<section id="hero" class="relative flex h-[69vh] w-full items-center justify-center lg:h-screen">
+	<figure class="bg-dark absolute inset-0 h-full w-full p-5 sm:p-10 lg:p-20">
+		<img
+			class="h-full w-full border-2 object-cover"
+			src={urlFor(data.settings.image.asset.url).auto('format').url()}
+			alt="homepage hero"
+		/>
+	</figure>
 	<div class=" bg-gradient-fade absolute inset-0 opacity-60" />
 	<a class="z-0 w-full" href="#subscribe">
 		<h1
 			class="font-display flex w-full justify-center gap-10 font-bold transition-all duration-500
 			lg:grid lg:grid-cols-2 lg:text-8xl lg:hover:gap-5"
 		>
-			<span class="text-light lg:text-right">Laila</span>
-			<span class="text-light lg:text-left">Wolf</span>
+			<span class="text-gray-300 lg:text-right">Laila</span>
+			<span class="text-gray-300 lg:text-left">Wolf</span>
 		</h1>
 	</a>
 </section>
 
 <!-- ABOUT SITE -->
-<div class="bg-gradient-3 text-dark py-10 lg:py-20">
-	<PortableText blocks={data.settings.body} />
-</div>
+<section class="grid w-full lg:grid-cols-2">
+	<figure class="order-last bg-gray-300 p-5 sm:p-10 lg:order-first lg:p-20">
+		<img
+			class="lg:bprder border-dark h-full w-full border-2 grayscale"
+			src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
+			alt={data.settings.founders[0].image}
+		/>
+	</figure>
+	<div class="bg-gradient-3 text-dark grid place-content-center p-10 lg:p-20">
+		<PortableText blocks={data.settings.body} />
+	</div>
+</section>
 
 <!-- ABOUT AUTHOR - HEADER -->
-<section class="grid w-full grid-cols-2">
-	<img
-		class="lg:bprder border-dark h-full w-full border-2 grayscale"
-		src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
-		alt={data.settings.founders[0].image}
-	/>
-	<div class="relative grid place-content-center">
+<section class="w-full">
+	<div class="relative grid place-content-center py-20">
 		<h2
-			class="bg-dark z-10 grid place-content-center p-5 text-4xl shadow-md shadow-pink-200 lg:p-10
+			class="bg-dark z-10 grid place-content-center p-5 text-4xl font-bold tracking-widest text-pink-200 shadow-md shadow-pink-200 lg:p-10
 			lg:text-7xl"
 		>
 			About
@@ -79,7 +86,7 @@
 </section>
 
 <!-- ABOUT AUTHOR - TEXT -->
-<div class="text-light bg-gradient-3 py-10 lg:py-5">
+<div class="text-light bg-gradient-3 p-5 lg:pb-20">
 	<PortableText blocks={data.settings.founders[0].bio} />
 </div>
 
@@ -96,7 +103,7 @@
 			<SocialLinks {links} size={60} color="#000" />
 		</div>
 	</section>
-	<p class="border-light text-light w-full border-t-2 bg-black/70 p-5 text-center">
+	<p class="border-light text-light w-full border-t-2 bg-black/70 p-5 text-center lg:p-10">
 		© laila wolf 2013-{new Date().getFullYear()}
 	</p>
 </footer>
