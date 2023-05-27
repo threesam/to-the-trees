@@ -35,7 +35,7 @@
 </script>
 
 {#if links?.length}
-	<div class="flex items-center justify-between gap-5">
+	<div class="grid grid-cols-2 items-center justify-between gap-5 lg:flex">
 		{#each links as { href, title }, i}
 			<a
 				style={`color: ${color};`}
