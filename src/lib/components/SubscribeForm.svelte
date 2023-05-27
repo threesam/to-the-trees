@@ -46,8 +46,8 @@
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="border-light bg-dark placeholder:text-light focus:placeholder:text-light/60 w-full rounded-none border-2 p-5
-			text-white focus:border-pink-300 focus:outline-none"
+			class="bg-dark w-full rounded-none border-2 border-gray-300 p-5 text-white placeholder:text-gray-300
+			focus:border-pink-300 focus:outline-none focus:placeholder:text-gray-300/60"
 			on:change={handleChange}
 			bind:value={$form.email}
 		/>
@@ -57,7 +57,10 @@
 			>
 		{/if}
 	</label>
-	<button class="border-light bg-light text-dark border-2 p-5 lg:border-none lg:pl-5" type="submit">
+	<button
+		class="text-dark border-2 border-gray-300 bg-gray-300 p-5 lg:border-none lg:pl-5"
+		type="submit"
+	>
 		subscribe
 	</button>
 </form>

@@ -58,14 +58,14 @@
 
 <!-- ABOUT SITE -->
 <section class="grid w-full lg:grid-cols-2">
-	<figure class="order-last bg-gray-300 p-5 sm:p-10 lg:order-first lg:p-20">
+	<figure class="order-last bg-pink-200 p-5 sm:p-10 lg:order-first lg:p-20">
 		<img
-			class="lg:bprder border-dark h-full w-full border-2 grayscale"
+			class="border-dark h-full w-full border-2 grayscale"
 			src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 			alt={data.settings.founders[0].image}
 		/>
 	</figure>
-	<div class="bg-gradient-3 text-dark grid place-content-center p-5 sm:p-10 lg:p-20">
+	<div class="bg-gradient-3 text-dark grid place-content-center p-5 py-20 sm:p-10 lg:p-20">
 		<PortableText blocks={data.settings.body} />
 	</div>
 </section>
@@ -74,7 +74,7 @@
 <section class="w-full">
 	<div class="relative grid place-content-center py-20">
 		<h2
-			class="bg-dark z-10 grid place-content-center p-5 text-4xl font-bold tracking-widest text-pink-200 shadow-md shadow-pink-200 lg:p-10
+			class="bg-dark z-10 grid place-content-center p-5 text-4xl font-bold tracking-widest text-gray-300 shadow-md shadow-pink-200 lg:p-10
 			lg:text-7xl"
 		>
 			About
@@ -99,11 +99,11 @@
 				<SubscribeForm />
 			</div>
 		</div>
-		<div class="bg-light grid aspect-square place-content-center">
+		<div class="grid aspect-square place-content-center bg-gray-300">
 			<SocialLinks {links} size={60} color="#000" />
 		</div>
 	</section>
-	<p class="border-light text-light w-full border-t-2 bg-black/70 p-5 text-center lg:p-10">
+	<p class="text-light w-full border-t-2 border-pink-200 bg-black/70 p-5 text-center lg:p-10">
 		© laila wolf 2013-{new Date().getFullYear()}
 	</p>
 </footer>
