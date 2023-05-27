@@ -17,6 +17,7 @@
 	import TikTok from './icons/TikTok.svelte'
 	import Website from './icons/Website.svelte'
 	import Youtube from './icons/Youtube.svelte'
+	import Message from './icons/Message.svelte'
 
 	const options = [
 		{ title: 'facebook', component: Facebook },
@@ -25,7 +26,8 @@
 		{ title: 'linkedin', component: LinkedIn },
 		{ title: 'tiktok', component: TikTok },
 		{ title: 'website', component: Website },
-		{ title: 'youtube', component: Youtube }
+		{ title: 'youtube', component: Youtube },
+		{ title: 'contact', component: Message }
 	]
 
 	const getIconComponent = (title: string) =>
