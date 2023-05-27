@@ -36,7 +36,7 @@
 />
 
 <!-- HERO -->
-<section id="hero" class="relative flex h-[69vh] w-full items-center justify-center lg:h-screen">
+<section id="hero" class="relative flex h-[80vh] w-full items-center justify-center lg:h-screen">
 	<figure class="bg-dark absolute inset-0 h-full w-full p-5 sm:p-10 lg:p-20">
 		<img
 			class="h-full w-full border-2 object-cover"
