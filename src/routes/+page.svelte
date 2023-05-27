@@ -13,6 +13,14 @@
 	const links = data.settings.founders[0].links.filter(
 		({ href }: { href: string }) => !new URL(href).hostname.startsWith(data.settings.hostname)
 	)
+
+	if (data.settings.founders[0].contact) {
+		console.log('data.settings.founders[0].contact: ', data.settings.founders[0].contact)
+		links.push({
+			title: 'contact',
+			href: 'mailto:' + data.settings.founders[0].contact
+		})
+	}
 </script>
 
 <SEO
