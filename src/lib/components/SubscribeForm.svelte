@@ -16,7 +16,12 @@
 				})
 
 				if (response.status === 200) {
-					message = 'Thanks for Subscribing!'
+					message = 'Email Confirmation sent...'
+					setTimeout(() => (isSubmitted = false), 1300)
+					setTimeout(() => {
+						isSubmitted = true
+						message = '...so check that spam folder'
+					}, 1500)
 				} else {
 					message = 'Uh oh, error'
 				}
@@ -26,7 +31,7 @@
 				setTimeout(() => {
 					$form.email = ''
 					isSubmitted = false
-				}, 3000)
+				}, 3300)
 			} catch (error) {
 				console.error(error)
 			}
@@ -52,7 +57,7 @@
 			bind:value={$form.email}
 		/>
 		{#if isSubmitted}
-			<span class="bg-dark absolute -bottom-8 left-0" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
+			<span class="bg-dark absolute -bottom-8 left-0 w-max" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
 				>{message}</span
 			>
 		{/if}
