@@ -8,7 +8,6 @@
 	import type { PageData } from './$types'
 
 	export let data: PageData
-	console.log('data: ', data.settings.founders[0].imageGallery)
 
 	// filter out circular reference to this page
 	const links = data.settings.founders[0].links.filter(
@@ -16,7 +15,6 @@
 	)
 
 	if (data.settings.founders[0].contact) {
-		console.log('data.settings.founders[0].contact: ', data.settings.founders[0].contact)
 		links.push({
 			title: 'contact',
 			href: 'mailto:' + data.settings.founders[0].contact

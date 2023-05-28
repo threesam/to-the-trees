@@ -1,40 +1,48 @@
+import client from '@mailchimp/mailchimp_marketing'
 import { env } from '$env/dynamic/private'
 import { error } from '@sveltejs/kit'
 
-export async function POST({ request }) {
-	const { email } = await request.json()
+// configure mailchimp client
+client.setConfig({
+	apiKey: env.MAILCHIMP_API_KEY,
+	server: env.MAILCHIMP_SERVER_PREFIX
+})
 
-	const tags = [] as string[]
+export async function GET({ url }) {
+	const { searchParams } = new URL(url)
 
-	if (env.NODE_ENV === 'development') {
-		tags.push('development')
-	}
-
-	try {
-		const response = await fetch(
-			`https://api.convertkit.com/v3/forms/${env.CONVERTKIT_FORM_ID}/subscribe`,
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json; charset=utf-8'
-				},
-				body: JSON.stringify({
-					api_key: env.CONVERTKIT_API_KEY,
-					email,
-					tags
-				})
-			}
-		)
-
-		const data = await response.json()
-		console.log('data: ', data)
-
-		if (data.error) {
-			throw error(401)
-		}
+	if (searchParams.get('i_will_allow_it')) {
+		const response = await client.lists.getListMembersInfo(env.MAILCHIMP_LIST_ID)
 
 		return new Response(JSON.stringify(response, null, 2))
-	} catch (_) {
-		throw error(500)
 	}
+}
+
+export async function POST({ request }) {
+	const { email } = await request.json()
+	console.log('email: ', email)
+
+	let event
+	// create member
+	try {
+		event = await client.lists.setListMember(env.MAILCHIMP_LIST_ID, email, {
+			status: 'subscribed'
+		})
+	} catch (e: any) {
+		console.error(e)
+	}
+
+	if (!event) {
+		try {
+			event = await client.lists.addListMember(env.MAILCHIMP_LIST_ID, {
+				email_address: email,
+				status: 'subscribed'
+			})
+		} catch (e: any) {
+			console.error(e)
+		}
+	}
+
+	console.log({ email, event })
+	return new Response(JSON.stringify({ email, event }, null, 2))
 }
