@@ -56,14 +56,14 @@
 
 <!-- ABOUT SITE -->
 <section class="grid w-full lg:grid-cols-2">
-	<figure class="order-last bg-pink-200 p-5 sm:p-10 lg:order-first lg:p-20">
+	<figure class="order-last bg-pink-200 lg:order-first">
 		<img
-			class="border-dark h-full w-full border-2 grayscale"
+			class="border-dark h-full w-full grayscale"
 			src={urlFor(data.settings.founders[0].image.asset.url).size(900, 900).auto('format').url()}
 			alt={data.settings.founders[0].image}
 		/>
 	</figure>
-	<div class="bg-gradient-3 text-dark grid place-content-center p-5 py-20 sm:p-10 lg:p-20">
+	<div class="text-dark grid place-content-center bg-pink-100 p-5 py-20 sm:p-10 lg:p-20">
 		<PortableText blocks={data.settings.body} />
 	</div>
 </section>
