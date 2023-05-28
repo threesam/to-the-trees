@@ -63,7 +63,7 @@
 			alt={data.settings.founders[0].image}
 		/>
 	</figure>
-	<div class="text-dark grid place-content-center bg-pink-100 p-5 py-20 sm:p-10 lg:p-20">
+	<div class="bg-gradient-3 text-dark grid place-content-center p-5 py-20 sm:p-10 lg:p-20">
 		<PortableText blocks={data.settings.body} />
 	</div>
 </section>
