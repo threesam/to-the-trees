@@ -37,11 +37,11 @@
 </script>
 
 {#if links?.length}
-	<div class="grid grid-cols-2 items-center justify-between gap-5 lg:flex">
+	<div class="grid grid-cols-3 items-center justify-between gap-5 lg:flex">
 		{#each links as { href, title }, i}
 			<a
 				style={`color: ${color};`}
-				class="flex items-center transition duration-300 hover:scale-90"
+				class="flex items-center overflow-hidden rounded-md transition duration-300 hover:scale-90"
 				in:scale={{ delay: (i + 1) * 100 + 500, start: 0 }}
 				{href}
 				aria-label={title}
