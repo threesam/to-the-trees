@@ -2,7 +2,7 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		fontFamily: {
-			display: ['PoiretOne', 'monospace'],
+			display: ['American Typewriter', 'monospace'],
 			sans: ['Montserrat', 'sans-serif'],
 			mono: ['monospace']
 		},

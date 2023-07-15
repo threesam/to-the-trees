@@ -1,7 +1,15 @@
 @font-face {
-	font-family: 'PoiretOne';
+	font-family: 'American Typewriter';
 	font-display: swap;
-	src: url('$lib/assets/fonts/PoiretOne-Regular.ttf');
+	src: url('$lib/assets/fonts/AmericanTypewriterStd-Light.otf');
+
+	/*  url('$lib/assets/fonts/AmericanTypewriterStd-BdCnd.otf'),
+		url('$lib/assets/fonts/AmericanTypewriterStd-BdIta.otf'), */
+	/* url('$lib/assets/fonts/AmericanTypewriterStd-Bold.otf'), url('$lib/assets/fonts/AmericanTypewriterStd-Cond.otf'),*/
+	/* url('$lib/assets/fonts/AmericanTypewriterStd-LtCnd.otf'),
+		url('$lib/assets/fonts/AmericanTypewriterStd-LtIta.otf'),
+		url('$lib/assets/fonts/AmericanTypewriterStd-MdIta.otf'),
+		url('$lib/assets/fonts/AmericanTypewriterStd-Med.otf'); */
 }
 
 @font-face {
