@@ -15,11 +15,7 @@ module.exports = {
 					 radial-gradient(at bottom right,rgba(19,19,19, 0.55),transparent 80%);`
 			},
 			colors: {
-				primary: 'rgb(183,198,175)',
-				svelteOrange: '#FF3E00',
-				svelteDark: '#F03A00',
-				beige: '#d2b097',
-				hotPink: '#FF1966',
+				primary: '#CDD23D',
 				dark: '#111111',
 				light: '#FAFAFA'
 			}

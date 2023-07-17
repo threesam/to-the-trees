@@ -6,8 +6,12 @@
 	import SubscribeForm from '$lib/components/SubscribeForm.svelte'
 	// import { urlFor } from '$lib/utils/sanity'
 	import type { PageData } from './$types'
+	import Carousel from '$lib/components/Carousel.svelte'
 
 	export let data: PageData
+
+	const { film } = data.body
+	console.log('film: ', film)
 
 	// filter out circular reference to this page
 	// const links = data.settings.founders[0].links.filter(
@@ -35,14 +39,14 @@
 
 <!-- HERO -->
 <section id="hero" class="relative flex h-screen w-full items-center justify-center">
-	<figure class="absolute inset-0 h-full w-full bg-dark p-5 sm:p-10 lg:p-20">
+	<figure class="bg-dark absolute inset-0 h-full w-full p-5 sm:p-10 lg:p-20">
 		<img
 			class="h-full w-full border-2 object-cover"
 			src={'https://media.discordapp.net/attachments/1039738613606395925/1129240397693063258/threesam_fine_line_ink_tiny_trees_in_a_dimly_lit_forest_overfl_d1e33f59-ce47-45ef-9cc9-e7c53c734ace.png?width=1932&height=1456'}
 			alt="homepage hero"
 		/>
 	</figure>
-	<div class=" absolute inset-0 bg-gradient-fade opacity-60" />
+	<div class=" bg-gradient-fade absolute inset-0 opacity-60" />
 	<h1 class="relative z-0">To The Trees</h1>
 </section>
 
@@ -52,56 +56,47 @@
 
 <section>
 	<div class="mx-auto max-w-2xl px-5 pb-10">
-		<h3 class="text-center font-display text-2xl font-normal">synopsis</h3>
+		<h3 class="font-display text-center text-2xl font-normal">synopsis</h3>
 
-		<p class="mb-3">
-			Qui exercitation velit fugiat nostrud officia exercitation aliquip Lorem. Voluptate dolore
-			eiusmod incididunt ea irure enim adipisicing officia. Labore irure cillum amet commodo sit
-			eiusmod quis pariatur exercitation cupidatat.
-		</p>
-		<p class="mb-3">
-			Qui exercitation velit fugiat nostrud officia exercitation aliquip Lorem. Voluptate dolore
-			eiusmod incididunt ea irure enim adipisicing officia. Labore irure cillum amet commodo sit
-			eiusmod quis pariatur exercitation cupidatat.
-		</p>
+		<PortableText blocks={film.synopsis} />
 
-		<h4 class="text-center font-display text-2xl">cast</h4>
+		<h4 class="font-display text-center text-2xl">cast</h4>
 
-		<!-- <ul class="mb-10">
-					{#each project.cast as castMember}
-						<li class="grid grid-cols-2 gap-2 text-left">
-							<span class="text-right">{castMember.castname}</span>
+		<ul class="mb-10">
+			{#each film.cast as castMember}
+				<li class="grid grid-cols-2 gap-2 text-left">
+					<span class="text-right">{castMember.role}</span>
 
-							{#if castMember.name && castMember.link}
-								<a
-									class="border-primary hover:text-primary h-max w-max border-b transition-all duration-300 hover:border-transparent hover:tracking-wider"
-									href={castMember.link}>{castMember.name}</a
-								>
-							{:else}
-								<span>{castMember.name}</span>
-							{/if}
-						</li>
-					{/each}
-				</ul> -->
+					{#if castMember.name && castMember.link}
+						<a
+							class="border-primary hover:text-primary h-max w-max border-b transition-all duration-300 hover:border-transparent hover:tracking-wider"
+							href={castMember.link}>{castMember.name}</a
+						>
+					{:else}
+						<span>{castMember.name}</span>
+					{/if}
+				</li>
+			{/each}
+		</ul>
 
-		<h4 class="text-center font-display text-2xl">crew</h4>
+		<h4 class="font-display text-center text-2xl">crew</h4>
 
-		<!-- <ul>
-					{#each project.crew as crewMember}
-						<li class="grid grid-cols-2 gap-2 text-left">
-							<span class="text-right">{crewMember.role}</span>
+		<ul>
+			{#each film.crew as crewMember}
+				<li class="grid grid-cols-2 gap-2 text-left">
+					<span class="text-right">{crewMember.role}</span>
 
-							{#if crewMember.name && crewMember.link}
-								<a
-									class="border-primary hover:text-primary h-max w-max border-b transition-all duration-300 hover:border-transparent hover:tracking-wider"
-									href={crewMember.link}>{crewMember.name}</a
-								>
-							{:else}
-								<span>{crewMember.name}</span>
-							{/if}
-						</li>
-					{/each}
-				</ul> -->
+					{#if crewMember.name && crewMember.link}
+						<a
+							class="border-primary hover:text-primary h-max w-max border-b transition-all duration-300 hover:border-transparent hover:tracking-wider"
+							href={crewMember.link}>{crewMember.name}</a
+						>
+					{:else}
+						<span>{crewMember.name}</span>
+					{/if}
+				</li>
+			{/each}
+		</ul>
 	</div>
 
 	<!-- <figure class="flex aspect-[3/4] w-full justify-center px-5 pb-10 lg:max-h-[50vh]">
@@ -112,6 +107,17 @@
 				/>
 			</figure> -->
 </section>
+
+<Carousel
+	items={[
+		...film.laurels,
+		...film.laurels,
+		...film.laurels,
+		...film.laurels,
+		...film.laurels,
+		...film.laurels
+	]}
+/>
 
 <!-- ABOUT SITE -->
 <!-- <section class="grid w-full lg:grid-cols-2">
@@ -144,8 +150,8 @@
 
 <!-- SUBSCRIBE + LINKS -->
 <footer>
-	<section class="max-w-screen relative flex w-full flex-col-reverse lg:grid lg:grid-cols-2">
-		<div id="subscribe" class="relative grid aspect-square place-content-center">
+	<section class="max-w-screen relative flex h-[500px] w-full flex-col-reverse">
+		<div id="subscribe" class="relative grid place-content-center">
 			<Sketch />
 			<div class="z-0">
 				<!-- <SubscribeForm /> -->
@@ -155,7 +161,7 @@
 			<SocialLinks {links} size={60} color="#000" />
 		</div> -->
 	</section>
-	<p class="w-full border-t-2 border-pink-200 bg-black/70 p-5 text-center text-light lg:p-10">
+	<p class="text-light w-full border-t-2 border-pink-200 bg-black/70 p-5 text-center lg:p-10">
 		© to the trees 2023-{new Date().getFullYear()}
 	</p>
 </footer>
