@@ -108,7 +108,7 @@
 			</figure> -->
 </section>
 
-<Carousel
+<!-- <Carousel
 	items={[
 		...film.laurels,
 		...film.laurels,
@@ -117,7 +117,7 @@
 		...film.laurels,
 		...film.laurels
 	]}
-/>
+/> -->
 
 <!-- ABOUT SITE -->
 <!-- <section class="grid w-full lg:grid-cols-2">
@@ -151,17 +151,9 @@
 <!-- SUBSCRIBE + LINKS -->
 <footer>
 	<section class="max-w-screen relative flex h-[500px] w-full flex-col-reverse">
-		<div id="subscribe" class="relative grid place-content-center">
-			<Sketch />
-			<div class="z-0">
-				<!-- <SubscribeForm /> -->
-			</div>
-		</div>
-		<!-- <div class="grid aspect-square place-content-center bg-gray-300">
-			<SocialLinks {links} size={60} color="#000" />
-		</div> -->
+		<Sketch />
 	</section>
-	<p class="text-light w-full border-t-2 border-pink-200 bg-black/70 p-5 text-center lg:p-10">
+	<p class="text-light w-full bg-black/70 p-5 text-center lg:p-10">
 		© to the trees 2023-{new Date().getFullYear()}
 	</p>
 </footer>
