@@ -27,7 +27,7 @@
 <!-- HERO -->
 <section
 	id="hero"
-	class="relative mb-20 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
+	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
 >
 	<figure class="absolute inset-0 h-full w-full bg-dark sm:p-10 lg:p-20">
 		<img
@@ -45,9 +45,14 @@
 		</div>
 	</div>
 	<div class="relative z-0 h-full w-full sm:py-10 sm:pr-10 lg:py-20 lg:pr-20">
-		<div class="relative z-0 flex h-full w-full items-center justify-center p-5 sm:p-10">
-			<a href="#" class="bg-primary/90 px-8 py-5 text-center text-dark">WATCH NOW</a>
-		</div>
+		<a
+			href="#"
+			class="relative z-0 flex h-full w-full items-center justify-center bg-transparent p-5 transition-colors duration-300 hover:bg-primary sm:p-10"
+		>
+			<span class="flex h-16 items-center bg-primary/90 px-3 text-center font-bold text-dark">
+				WATCH NOW
+			</span>
+		</a>
 	</div>
 </section>
 
@@ -65,7 +70,7 @@
 {/if}
 
 <section class="relative">
-	<div class="relative z-10 py-10">
+	<div class="relative z-10 mx-auto max-w-3xl px-5 sm:px-10">
 		<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
 		<PortableText blocks={film.synopsis} />
 
@@ -105,7 +110,7 @@
 			{/each}
 		</ul>
 	</div>
-	<Sketch />
+	<!-- <Sketch /> -->
 	<div class="absolute inset-0 rotate-180 bg-black/80" />
 </section>
 
