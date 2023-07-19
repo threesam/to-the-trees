@@ -70,7 +70,7 @@
 {/if}
 
 <section class="relative">
-	<div class="relative z-10 mx-auto max-w-3xl px-5 sm:px-10">
+	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10">
 		<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
 		<PortableText blocks={film.synopsis} />
 
@@ -111,7 +111,7 @@
 		</ul>
 	</div>
 	<Sketch />
-	<div class="absolute inset-0 rotate-180 bg-black/80" />
+	<div class="absolute inset-0 rotate-180 bg-black/70" />
 </section>
 
 <footer>

@@ -25,7 +25,7 @@
 
 		const start = -smallSide
 		const end = smallSide
-		const density = 5 //27
+		const density = 4 //27
 		const space = smallSide / density
 
 		const maxLength = 25
@@ -47,7 +47,7 @@
 			p5.noLoop()
 
 			for (let x = -width + space; x < width; x += space) {
-				for (let y = -height + space; y < height; y += space) {
+				for (let y = -height / 4; y < height - space; y += space) {
 					const noise = p5.noise(x * multi, y * multi)
 					const color = p5.map(noise, 0, 1, 100, 255)
 					const offset = p5.random(-maxLength / 4, maxLength / 4)
