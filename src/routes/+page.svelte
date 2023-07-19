@@ -11,19 +11,6 @@
 	export let data: PageData
 
 	const { film } = data.body
-	console.log('film: ', film)
-
-	// filter out circular reference to this page
-	// const links = data.settings.founders[0].links.filter(
-	// 	({ href }: { href: string }) => !new URL(href).hostname.startsWith(data.settings.hostname)
-	// )
-
-	// if (data.settings.founders[0].contact) {
-	// 	links.push({
-	// 		title: 'contact',
-	// 		href: 'mailto:' + data.settings.founders[0].contact
-	// 	})
-	// }
 </script>
 
 <SEO
@@ -32,36 +19,44 @@
 	openGraph={{
 		title: 'To the Trees',
 		description: 'A film by Eleanor Goldfield',
-		type: 'website'
-		// images: [{ url: data.settings.image.asset.url }]
+		type: 'website',
+		images: [{ url: film.image.asset.url }]
 	}}
 />
 
 <!-- HERO -->
-<section id="hero" class="relative flex h-screen w-full items-center justify-center">
-	<figure class="bg-dark absolute inset-0 h-full w-full p-5 sm:p-10 lg:p-20">
+<section
+	id="hero"
+	class="relative mb-20 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
+>
+	<figure class="absolute inset-0 h-full w-full bg-dark sm:p-10 lg:p-20">
 		<img
-			class="h-full w-full border-2 object-cover"
+			class="h-full w-full object-cover sm:border"
 			src={'https://media.discordapp.net/attachments/1039738613606395925/1129240397693063258/threesam_fine_line_ink_tiny_trees_in_a_dimly_lit_forest_overfl_d1e33f59-ce47-45ef-9cc9-e7c53c734ace.png?width=1932&height=1456'}
 			alt="homepage hero"
 		/>
 	</figure>
-	<div class=" bg-gradient-fade absolute inset-0 opacity-60" />
-	<h1 class="relative z-0">To The Trees</h1>
+	<div class="relative z-0 h-full w-full sm:py-10 sm:pl-10 lg:py-20 lg:pl-20">
+		<div
+			class="flex h-full w-full items-center justify-center bg-black p-5 opacity-90 sm:border sm:border-r-0 sm:p-10"
+		>
+			<h1 class="pt-3 text-right">To The Trees</h1>
+		</div>
+	</div>
+	<div class="relative z-0 h-full w-full sm:py-10 sm:pr-10 lg:py-20 lg:pr-20">
+		<div class="relative z-0 flex h-full w-full items-center justify-center p-5 sm:p-10">
+			<a href="#" class="bg-black/90 px-8 py-5 text-light">WATCH NOW</a>
+		</div>
+	</div>
 </section>
-
-<!-- <div class="flex w-full items-center justify-center py-10">
-	<SocialLinks size={40} links={project.links} />
-</div> -->
 
 <section>
 	<div class="mx-auto max-w-2xl px-5 pb-10">
-		<h3 class="font-display text-center text-2xl font-normal">synopsis</h3>
+		<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
 
 		<PortableText blocks={film.synopsis} />
 
-		<h4 class="font-display text-center text-2xl">cast</h4>
-
+		<h3 class="mb-2 mt-10 text-center font-display text-4xl">cast</h3>
 		<ul class="mb-10">
 			{#each film.cast as castMember}
 				<li class="grid grid-cols-2 gap-2 text-left">
@@ -69,7 +64,7 @@
 
 					{#if castMember.name && castMember.link}
 						<a
-							class="border-primary hover:text-primary h-max w-max border-b transition-all duration-300 hover:border-transparent hover:tracking-wider"
+							class="h-max w-max border-b border-primary transition-all duration-300 hover:border-transparent hover:tracking-wider hover:text-primary"
 							href={castMember.link}>{castMember.name}</a
 						>
 					{:else}
@@ -79,8 +74,7 @@
 			{/each}
 		</ul>
 
-		<h4 class="font-display text-center text-2xl">crew</h4>
-
+		<h3 class="mb-2 text-center font-display text-4xl">crew</h3>
 		<ul>
 			{#each film.crew as crewMember}
 				<li class="grid grid-cols-2 gap-2 text-left">
@@ -88,7 +82,7 @@
 
 					{#if crewMember.name && crewMember.link}
 						<a
-							class="border-primary hover:text-primary h-max w-max border-b transition-all duration-300 hover:border-transparent hover:tracking-wider"
+							class="h-max w-max border-b border-primary transition-all duration-300 hover:border-transparent hover:tracking-wider hover:text-primary"
 							href={crewMember.link}>{crewMember.name}</a
 						>
 					{:else}
@@ -107,6 +101,10 @@
 				/>
 			</figure> -->
 </section>
+
+<!-- <div class="flex w-full items-center justify-center py-10">
+	<SocialLinks size={40} links={project.links} />
+</div> -->
 
 <!-- <Carousel
 	items={[
@@ -153,7 +151,7 @@
 	<section class="max-w-screen relative flex h-[500px] w-full flex-col-reverse">
 		<Sketch />
 	</section>
-	<p class="text-light w-full bg-black/70 p-5 text-center lg:p-10">
+	<p class="w-full bg-black/70 p-5 text-center text-light lg:p-10">
 		© to the trees 2023-{new Date().getFullYear()}
 	</p>
 </footer>
