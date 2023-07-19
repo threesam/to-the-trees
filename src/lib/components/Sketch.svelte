@@ -25,7 +25,7 @@
 
 		const start = -smallSide
 		const end = smallSide
-		const density = 10 //27
+		const density = 5 //27
 		const space = smallSide / density
 
 		const maxLength = 25
@@ -40,20 +40,20 @@
 		}[]
 
 		p5.setup = () => {
-			p5.createCanvas(w, h)
+			p5.createCanvas(width, height)
 			p5.noiseSeed(seed)
 			p5.angleMode(p5.DEGREES)
 			p5.rectMode(p5.CENTER)
 			p5.noLoop()
 
-			for (let x = start + space; x < end; x += space) {
-				for (let y = start + space; y < end; y += space) {
+			for (let x = -width + space; x < width; x += space) {
+				for (let y = -height + space; y < height; y += space) {
 					const noise = p5.noise(x * multi, y * multi)
 					const color = p5.map(noise, 0, 1, 100, 255)
 					const offset = p5.random(-maxLength / 4, maxLength / 4)
-					if (p5.dist(x, y, 0, 0) < smallSide * 0.28) {
-						trees.push({ x: x + p5.random(-10, 10), y: y + p5.random(-10, 10), color, offset })
-					}
+					// if (p5.dist(x, y, 0, 0) < smallSide * 0.28) {
+					trees.push({ x: x + p5.random(-10, 10), y: y + p5.random(-10, 10), color, offset })
+					// }
 				}
 			}
 		}
@@ -63,7 +63,7 @@
 			p5.translate(w / 2, h / 2 + maxLength)
 			trees.forEach(({ x, y, color }) => {
 				const dist = p5.dist(x, y, 0, 0)
-				const offset = p5.map(dist, 0, smallSide * 0.28, 1, 0.25)
+				const offset = p5.map(dist, 0, smallSide, 0.3, 1.2)
 				p5.push()
 				p5.stroke(color)
 				p5.translate(x, y)
