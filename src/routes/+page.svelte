@@ -110,7 +110,7 @@
 			{/each}
 		</ul>
 	</div>
-	<!-- <Sketch /> -->
+	<Sketch />
 	<div class="absolute inset-0 rotate-180 bg-black/80" />
 </section>
 
