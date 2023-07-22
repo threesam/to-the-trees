@@ -13,22 +13,16 @@
 	}
 
 	const sketch: Sketch = (p5) => {
-		// p5.disableFriendlyErrors = true
-
-		const w = document.body.offsetWidth // viewport width
-		const h = 500 // viewport height
-		const padding = 1.5
-		const smallSide = w > h ? h * padding : w * padding
+		p5.disableFriendlyErrors = true
+		const padding = 1
+		const smallSide = width > height ? height * padding : width * padding
 
 		const seed = Math.floor(p5.random(1000000))
 		const multi = 0.05
 
-		const start = -smallSide
-		const end = smallSide
-		const density = 4 //27
-		const space = smallSide / density
+		const space = 100
 
-		const maxLength = 25
+		const maxLength = 20
 		const minLength = 7
 		const angle = 30
 
@@ -36,7 +30,6 @@
 			x: number
 			y: number
 			color: number
-			offset: number
 		}[]
 
 		p5.setup = () => {
@@ -46,40 +39,35 @@
 			p5.rectMode(p5.CENTER)
 			p5.noLoop()
 
-			for (let x = -width + space; x < width; x += space) {
-				for (let y = -height / 4; y < height - space; y += space) {
+			for (let x = -width / 2 + space / 2; x < width / 2; x += space) {
+				for (let y = -height / 2 + space; y < height / 2; y += space) {
 					const noise = p5.noise(x * multi, y * multi)
-					const color = p5.map(noise, 0, 1, 100, 255)
-					const offset = p5.random(-maxLength / 4, maxLength / 4)
-					// if (p5.dist(x, y, 0, 0) < smallSide * 0.28) {
-					trees.push({ x: x + p5.random(-10, 10), y: y + p5.random(-10, 10), color, offset })
-					// }
+					const color = p5.map(noise, 0, 1, 0, 255)
+					trees.push({ x: x + p5.random(-10, 10), y: y + p5.random(-10, 10), color })
 				}
 			}
 		}
 
 		p5.draw = () => {
 			p5.background(0)
-			p5.translate(w / 2, h / 2 + maxLength)
+			p5.translate(width / 2, height / 2)
+
 			trees.forEach(({ x, y, color }) => {
-				const dist = p5.dist(x, y, 0, 0)
-				const offset = p5.map(dist, 0, smallSide, 0.3, 1.2)
+				const dist = p5.dist(width > height ? y : x, smallSide / 2, 0, 0)
+				const offset = p5.map(dist, -width / 2, width / 2, 0.3, 1.2)
 				p5.push()
 				p5.stroke(color)
 				p5.translate(x, y)
 				branch(maxLength * offset)
 				p5.pop()
 			})
-
-			p5.stroke(255)
-			// branch(150)
 		}
 
 		function branch(len: number) {
 			p5.push()
 			let isDone
 			if (len > minLength) {
-				const weight = p5.map(len, minLength, maxLength, 1, 5)
+				// const weight = p5.map(len, minLength, maxLength, 1, 5)
 				// p5.strokeWeight(weight)
 				const offset = p5.random(-5, 5)
 				// p5.rect(0, 0, offset, -len)
@@ -100,7 +88,7 @@
 		}
 
 		p5.windowResized = () => {
-			p5.resizeCanvas(w, h)
+			p5.resizeCanvas(width, height)
 		}
 	}
 </script>

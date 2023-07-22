@@ -35,13 +35,13 @@
 		alt="homepage hero"
 	/>
 
-	<figure class="absolute inset-0 h-full w-full bg-dark/50 sm:p-10 lg:p-20">
+	<div class="absolute inset-0 h-full w-full bg-dark/50 sm:p-10 lg:p-20">
 		<div class="h-full w-full object-cover sm:border sm:border-primary" />
-	</figure>
+	</div>
 
 	<div class="relative z-0 h-full w-full sm:py-10 sm:pl-10 lg:py-20 lg:pl-20">
 		<div
-			class="flex h-full w-full flex-col items-center justify-center bg-black p-5 opacity-90 sm:border sm:border-r-0 sm:border-primary sm:p-10"
+			class="flex h-full w-full flex-col items-center justify-center bg-black/80 p-5 sm:border sm:border-r-0 sm:border-primary sm:p-10"
 		>
 			<h1 class="pt-3 text-center text-primary">To The Trees</h1>
 			<div class="block text-center text-5xl text-primary sm:hidden">|</div>
@@ -49,7 +49,7 @@
 	</div>
 	<div class="relative z-0 h-full w-full sm:py-10 sm:pr-10 lg:py-20 lg:pr-20">
 		<a
-			href="#"
+			href={film.gumroadLink ?? '#'}
 			class="relative z-0 flex h-full w-full items-center justify-center bg-transparent p-5 transition-colors duration-300 hover:bg-primary sm:p-10"
 		>
 			<span class="flex h-16 items-center bg-primary/90 px-3 text-center font-bold text-dark">
@@ -72,8 +72,8 @@
 	/>
 {/if}
 
-<section class="relative">
-	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10">
+<section class="relative lg:mt-10">
+	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10 lg:pt-10">
 		<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
 		<PortableText blocks={film.synopsis} />
 
@@ -115,12 +115,9 @@
 	</div>
 	<Sketch />
 	<div class="absolute inset-0 rotate-180 bg-black/70" />
-</section>
-
-<footer>
-	<p
-		class="relative z-0 grid h-full w-full place-content-center p-5 text-center text-light lg:p-10"
+	<footer
+		class="relative z-0 grid h-full w-full place-content-center bg-primary p-2 text-center text-dark"
 	>
 		© to the trees 2023
-	</p>
-</footer>
+	</footer>
+</section>
