@@ -39,8 +39,8 @@
 			p5.rectMode(p5.CENTER)
 			p5.noLoop()
 
-			for (let x = -width / 2 + space / 2; x < width / 2; x += space) {
-				for (let y = -height / 2 + space; y < height / 2; y += space) {
+			for (let x = -width / 2 - space; x < width / 2 + space; x += space) {
+				for (let y = -height / 2 + space; y < height / 2 - space / 2; y += space) {
 					const noise = p5.noise(x * multi, y * multi)
 					const color = p5.map(noise, 0, 1, 0, 255)
 					trees.push({ x: x + p5.random(-10, 10), y: y + p5.random(-10, 10), color })
@@ -50,11 +50,11 @@
 
 		p5.draw = () => {
 			p5.background(0)
-			p5.translate(width / 2, height / 2)
+			p5.translate(width / 2 + space / 8, height / 2 + space / 2)
 
 			trees.forEach(({ x, y, color }) => {
-				const dist = p5.dist(width > height ? y : x, smallSide / 2, 0, 0)
-				const offset = p5.map(dist, -width / 2, width / 2, 0.3, 1.2)
+				const dist = p5.dist(width > height ? x : y, 0, 0, 0)
+				const offset = 1 //p5.map(dist, 0, smallSide / 2, 0.5, 1.5)
 				p5.push()
 				p5.stroke(color)
 				p5.translate(x, y)
