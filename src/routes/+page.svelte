@@ -29,13 +29,16 @@
 	id="hero"
 	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
 >
-	<figure class="absolute inset-0 h-full w-full bg-dark sm:p-10 lg:p-20">
-		<img
-			class="h-full w-full object-cover sm:border sm:border-primary"
-			src={'https://media.discordapp.net/attachments/1039738613606395925/1129240397693063258/threesam_fine_line_ink_tiny_trees_in_a_dimly_lit_forest_overfl_d1e33f59-ce47-45ef-9cc9-e7c53c734ace.png?width=1932&height=1456'}
-			alt="homepage hero"
-		/>
+	<img
+		class="absolute inset-0 h-full w-full object-cover"
+		src={'https://media.discordapp.net/attachments/1039738613606395925/1129240397693063258/threesam_fine_line_ink_tiny_trees_in_a_dimly_lit_forest_overfl_d1e33f59-ce47-45ef-9cc9-e7c53c734ace.png?width=1932&height=1456'}
+		alt="homepage hero"
+	/>
+
+	<figure class="absolute inset-0 h-full w-full bg-dark/50 sm:p-10 lg:p-20">
+		<div class="h-full w-full object-cover sm:border sm:border-primary" />
 	</figure>
+
 	<div class="relative z-0 h-full w-full sm:py-10 sm:pl-10 lg:py-20 lg:pl-20">
 		<div
 			class="flex h-full w-full flex-col items-center justify-center bg-black p-5 opacity-90 sm:border sm:border-r-0 sm:border-primary sm:p-10"
