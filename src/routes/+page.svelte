@@ -1,16 +1,25 @@
 <script lang="ts">
 	import PortableText from '$lib/components/PortableText.svelte'
 	import SEO from 'svelte-seo'
-	import Sketch from '$lib/components/Sketch.svelte'
-	import SocialLinks from '$lib/components/SocialLinks.svelte'
-	import SubscribeForm from '$lib/components/SubscribeForm.svelte'
+	// import Sketch from '$lib/components/Sketch.svelte'
+	// import SocialLinks from '$lib/components/SocialLinks.svelte'
+	// import SubscribeForm from '$lib/components/SubscribeForm.svelte'
 	// import { urlFor } from '$lib/utils/sanity'
 	import type { PageData } from './$types'
 	import Carousel from '$lib/components/Carousel.svelte'
+	import { onMount } from 'svelte'
+	import { urlFor } from '$lib/utils/sanity'
 
 	export let data: PageData
 
 	const { film } = data.body
+
+	const backgroundImageSrc = urlFor(film.image.asset.url).auto('format').url()
+
+	let SketchAsync
+	onMount(async () => {
+		SketchAsync = (await import('$lib/components/Sketch.svelte')).default
+	})
 </script>
 
 <SEO
@@ -20,7 +29,7 @@
 		title: 'To the Trees',
 		description: 'A film by Eleanor Goldfield',
 		type: 'website',
-		images: [{ url: film.image.asset.url }]
+		images: [{ url: backgroundImageSrc }]
 	}}
 />
 
@@ -31,7 +40,7 @@
 >
 	<img
 		class="absolute inset-0 h-full w-full object-cover"
-		src={'https://media.discordapp.net/attachments/1039738613606395925/1129240397693063258/threesam_fine_line_ink_tiny_trees_in_a_dimly_lit_forest_overfl_d1e33f59-ce47-45ef-9cc9-e7c53c734ace.png?width=1932&height=1456'}
+		src={backgroundImageSrc}
 		alt="homepage hero"
 	/>
 
@@ -52,9 +61,7 @@
 			href={film.gumroadLink ?? '#'}
 			class="relative z-0 flex h-full w-full items-center justify-center bg-transparent p-5 transition-colors duration-300 hover:bg-primary sm:p-10"
 		>
-			<span class="flex h-16 items-center bg-primary/90 px-3 text-center font-bold text-dark">
-				WATCH NOW
-			</span>
+			<span class="bg-primary/90 p-3 font-bold text-dark sm:p-8"> WATCH NOW </span>
 		</a>
 	</div>
 </section>
@@ -72,7 +79,7 @@
 	/>
 {/if}
 
-<section class="relative lg:mt-10">
+<div class="relative lg:mt-10">
 	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10 lg:pt-10">
 		<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
 		<PortableText blocks={film.synopsis} />
@@ -113,11 +120,15 @@
 			{/each}
 		</ul>
 	</div>
-	<Sketch />
+
+	<!-- <Sketch /> -->
+	<svelte:component this={SketchAsync} />
+
 	<div class="absolute inset-0 rotate-180 bg-black/70" />
-	<footer
-		class="relative z-0 grid h-full w-full place-content-center bg-primary p-2 text-center text-dark"
-	>
-		© to the trees 2023
-	</footer>
-</section>
+</div>
+
+<footer
+	class="relative z-0 grid h-full w-full place-content-center bg-primary p-2 text-center text-dark"
+>
+	© to the trees 2023
+</footer>
