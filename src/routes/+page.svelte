@@ -36,7 +36,7 @@
 <!-- HERO -->
 <section
 	id="hero"
-	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center overflow-x-hidden lg:mb-0"
+	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
 >
 	<img
 		class="absolute inset-0 h-full w-full object-cover"
@@ -122,9 +122,11 @@
 	</div>
 
 	<!-- <Sketch /> -->
-	<svelte:component this={SketchAsync} />
+	<div class="absolute inset-[1px] h-full w-full overflow-hidden">
+		<svelte:component this={SketchAsync} />
+	</div>
 
-	<div class="absolute inset-0 -left-1 -right-1 rotate-180 bg-black/70" />
+	<div class="absolute inset-0 rotate-180 bg-black/70" />
 </div>
 
 <footer
