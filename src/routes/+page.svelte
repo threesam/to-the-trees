@@ -124,7 +124,7 @@
 	<!-- <Sketch /> -->
 	<svelte:component this={SketchAsync} />
 
-	<div class="absolute inset-0 rotate-180 bg-black/70" />
+	<div class="absolute inset-0 -left-1 -right-1 rotate-180 bg-black/70" />
 </div>
 
 <footer
