@@ -61,7 +61,7 @@
 			href={film.gumroadLink ?? '#'}
 			class="relative z-0 flex h-full w-full items-center justify-center bg-transparent p-5 transition-colors duration-300 hover:bg-primary sm:p-10"
 		>
-			<span class="bg-primary/90 p-3 font-bold text-dark sm:p-8"> WATCH NOW </span>
+			<span class="bg-primary/90 p-3 text-dark sm:p-8 sm:font-bold"> WATCH NOW </span>
 		</a>
 	</div>
 </section>
