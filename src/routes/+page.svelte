@@ -122,7 +122,7 @@
 	</div>
 
 	<!-- <Sketch /> -->
-	<div class="absolute inset-[1px] h-full w-full overflow-hidden">
+	<div class="absolute inset-[2px] h-full w-full overflow-hidden">
 		<svelte:component this={SketchAsync} />
 	</div>
 
