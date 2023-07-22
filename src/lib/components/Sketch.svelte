@@ -53,8 +53,8 @@
 			p5.translate(width / 2 + space / 8, height / 2 + space / 2)
 
 			trees.forEach(({ x, y, color }) => {
-				const dist = p5.dist(width > height ? x : y, 0, 0, 0)
-				const offset = 1 //p5.map(dist, 0, smallSide / 2, 0.5, 1.5)
+				const dist = p5.dist(x, 0, 0, 0)
+				const offset = p5.map(dist, 0, width / 2, 0.5, 1.5)
 				p5.push()
 				p5.stroke(color)
 				p5.translate(x, y)
