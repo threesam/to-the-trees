@@ -34,18 +34,18 @@
 
 @layer base {
 	h1 {
-		@apply font-display text-5xl;
+		@apply font-display text-5xl text-primary;
 	}
 	h2 {
-		@apply font-display text-4xl;
+		@apply font-display text-4xl text-primary;
 	}
 	h3 {
-		@apply font-display text-3xl;
+		@apply font-display text-3xl text-primary;
 	}
 	h4 {
-		@apply font-display text-2xl;
+		@apply font-display text-2xl text-primary;
 	}
 	h5 {
-		@apply font-display text-xl;
+		@apply font-display text-xl text-primary;
 	}
 }
