@@ -50,7 +50,7 @@
 
 	<div class="relative z-0 h-full w-full sm:py-10 sm:pl-10 lg:py-20 lg:pl-20">
 		<div
-			class="flex h-full w-full flex-col items-center justify-center bg-black p-5 sm:border sm:border-r-0 sm:border-primary sm:p-10"
+			class="flex h-full w-full flex-col items-center justify-center bg-black/70 p-5 sm:border sm:border-r-0 sm:border-primary sm:p-10"
 		>
 			<h1 class="pt-3 text-center text-primary">To The Trees</h1>
 			<div class="block text-center text-5xl text-primary sm:hidden">|</div>
