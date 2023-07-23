@@ -36,10 +36,10 @@
 <!-- HERO -->
 <section
 	id="hero"
-	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
+	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center border-b border-primary sm:border-none lg:mb-0"
 >
 	<img
-		class="absolute inset-0 h-full w-full object-cover"
+		class="absolute inset-0 h-full w-full object-cover grayscale"
 		src={backgroundImageSrc}
 		alt="homepage hero"
 	/>
@@ -50,7 +50,7 @@
 
 	<div class="relative z-0 h-full w-full sm:py-10 sm:pl-10 lg:py-20 lg:pl-20">
 		<div
-			class="flex h-full w-full flex-col items-center justify-center bg-black/80 p-5 sm:border sm:border-r-0 sm:border-primary sm:p-10"
+			class="flex h-full w-full flex-col items-center justify-center bg-black p-5 sm:border sm:border-r-0 sm:border-primary sm:p-10"
 		>
 			<h1 class="pt-3 text-center text-primary">To The Trees</h1>
 			<div class="block text-center text-5xl text-primary sm:hidden">|</div>
@@ -61,7 +61,7 @@
 			href={film.gumroadLink ?? '#'}
 			class="relative z-0 flex h-full w-full items-center justify-center bg-transparent p-5 transition-colors duration-300 hover:bg-primary sm:p-10"
 		>
-			<span class="bg-primary/90 p-3 text-dark sm:p-8 sm:font-bold"> WATCH NOW </span>
+			<span class="bg-primary p-3 text-dark sm:p-8 sm:font-bold"> WATCH NOW </span>
 		</a>
 	</div>
 </section>
@@ -119,6 +119,14 @@
 				</li>
 			{/each}
 		</ul>
+
+		<div class="relative z-0 mx-auto aspect-[3/4] w-96 max-w-full pt-10">
+			<img
+				src="https://cdn.sanity.io/images/ppo5s5uj/production/d80784503ede3aa2ec966b597dd272a5b619820b-709x1280.jpg"
+				alt="to the trees poster"
+				class="border-4 border-primary"
+			/>
+		</div>
 	</div>
 
 	<!-- <Sketch /> -->
