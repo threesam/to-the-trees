@@ -120,11 +120,11 @@
 			{/each}
 		</ul>
 
-		<div class="relative z-0 mx-auto aspect-[3/4] w-96 max-w-full pt-10">
+		<div class="relative z-0 mx-auto aspect-[9/16] w-96 max-w-full pt-10">
 			<img
 				src="https://cdn.sanity.io/images/ppo5s5uj/production/d80784503ede3aa2ec966b597dd272a5b619820b-709x1280.jpg"
 				alt="to the trees poster"
-				class="border-4 border-primary"
+				class="aspect-[9/16] border-4 border-primary"
 			/>
 		</div>
 	</div>
