@@ -26,6 +26,12 @@ export async function getFilm() {
       image{
         asset->
       }
+    },
+    seo{
+      ...,
+      image{
+        asset->
+      }
     }
   }`)
 }

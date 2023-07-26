@@ -31,13 +31,15 @@
 </script>
 
 <SEO
-	title="To the Trees"
-	description={'A film by Eleanor Goldfield'}
+	title={film.seo.title}
+	description={film.seo.description}
 	openGraph={{
-		title: 'To the Trees',
-		description: 'A film by Eleanor Goldfield',
+		title: film.seo.title,
+		description: film.seo.description,
 		type: 'website',
-		images: [{ url: backgroundImageSrc }]
+		images: [
+			{ url: urlFor(film.seo.image.asset.url).width(1920).height(1080).auto('format').url() }
+		]
 	}}
 />
 
@@ -56,7 +58,7 @@
 		/>
 	{/if}
 
-	<div class="absolute inset-0 h-full w-full bg-dark/50 sm:p-10 lg:p-20">
+	<div class="absolute inset-0 h-full w-full bg-dark/10 sm:p-10 lg:p-20">
 		<div class="h-full w-full object-cover sm:border sm:border-primary" />
 	</div>
 
