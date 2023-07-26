@@ -42,7 +42,7 @@
 			for (let x = -width / 2 - space; x < width / 2 + space; x += space) {
 				for (let y = -height / 2 + space; y < height / 2 - space / 2; y += space) {
 					const noise = p5.noise(x * multi, y * multi)
-					const color = p5.map(noise, 0, 1, 0, 255)
+					const color = p5.map(noise, 0, 1, 0, 69)
 					trees.push({ x: x + p5.random(-10, 10), y: y + p5.random(-10, 10), color })
 				}
 			}

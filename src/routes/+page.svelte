@@ -10,11 +10,19 @@
 	import { onMount } from 'svelte'
 	import { urlFor } from '$lib/utils/sanity'
 
+	let clientHeight: number | undefined
+	let clientWidth: number | undefined
+
 	export let data: PageData
 
 	const { film } = data.body
 
-	const backgroundImageSrc = urlFor(film.image.asset.url).auto('format').url()
+	$: backgroundImageSrc = urlFor(film.image.asset.url)
+		.width(clientWidth ?? 1920)
+		.height(clientHeight ?? 1080)
+		.fit('crop')
+		.auto('format')
+		.url()
 
 	let SketchAsync
 	onMount(async () => {
@@ -35,14 +43,18 @@
 
 <!-- HERO -->
 <section
+	bind:clientWidth
+	bind:clientHeight
 	id="hero"
-	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center border-b border-primary sm:border-none lg:mb-0"
+	class="relative mb-10 grid h-screen w-full grid-cols-2 items-center justify-center lg:mb-0"
 >
-	<img
-		class="absolute inset-0 h-full w-full object-cover grayscale"
-		src={backgroundImageSrc}
-		alt="homepage hero"
-	/>
+	{#if clientWidth}
+		<img
+			class="absolute inset-0 h-full w-full object-cover"
+			src={backgroundImageSrc}
+			alt="homepage hero"
+		/>
+	{/if}
 
 	<div class="absolute inset-0 h-full w-full bg-dark/50 sm:p-10 lg:p-20">
 		<div class="h-full w-full object-cover sm:border sm:border-primary" />
@@ -66,7 +78,7 @@
 	</div>
 </section>
 
-{#if film.showLaurels}
+<!-- {#if film.showLaurels}
 	<Carousel
 		items={[
 			...film.laurels,
@@ -77,7 +89,7 @@
 			...film.laurels
 		]}
 	/>
-{/if}
+{/if} -->
 
 <div class="relative lg:mt-10">
 	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10 lg:pt-10">
@@ -120,21 +132,19 @@
 			{/each}
 		</ul>
 
-		<div class="relative z-0 mx-auto aspect-[9/16] w-96 max-w-full py-10">
+		<div class="relative z-0 mx-auto w-96 max-w-full py-10">
 			<img
 				src="https://cdn.sanity.io/images/ppo5s5uj/production/d80784503ede3aa2ec966b597dd272a5b619820b-709x1280.jpg"
 				alt="to the trees poster"
-				class="aspect-[9/16] border-4 border-primary"
+				class="h-full w-full border-4 border-primary"
 			/>
 		</div>
 	</div>
 
 	<!-- <Sketch /> -->
-	<div class="absolute inset-[2px] h-full w-full overflow-hidden">
+	<div class="absolute inset-0 h-full w-full overflow-hidden">
 		<svelte:component this={SketchAsync} />
 	</div>
-
-	<div class="absolute inset-0 rotate-180 bg-black/70" />
 </div>
 
 <footer
