@@ -147,7 +147,7 @@
 		{/if}
 
 		{#if film.callouts?.length}
-			<h3 class="mb-1 text-center font-display text-2xl">special thanks</h3>
+			<h3 class="text-center font-display text-2xl">special thanks</h3>
 			<ul class="mb-10">
 				{#each film.callouts as callout}
 					<li class="text-center">{callout}</li>
@@ -156,7 +156,7 @@
 		{/if}
 
 		{#if film.patrons?.length}
-			<h3 class="mb-1 text-center font-display text-2xl">patrons</h3>
+			<h3 class="text-center font-display text-2xl">patrons</h3>
 			<ul class="mb-10">
 				{#each film.patrons as patron}
 					<li class="text-center">{patron}</li>
