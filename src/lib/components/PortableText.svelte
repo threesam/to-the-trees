@@ -1,10 +1,18 @@
 <script lang="ts">
 	export let blocks: any[] = []
 	import { PortableText } from '@portabletext/svelte'
+	import Quote from './Quote.svelte'
 </script>
 
 <section class="portable-text mx-auto max-w-4xl">
-	<PortableText value={blocks} />
+	<PortableText
+		components={{
+			block: {
+				blockquote: Quote
+			}
+		}}
+		value={blocks}
+	/>
 </section>
 
 <style lang="scss">
@@ -31,10 +39,6 @@
 				&:hover {
 					@apply border-transparent pb-1 text-pink-200;
 				}
-			}
-
-			blockquote {
-				@apply text-dark border-2 border-black bg-pink-200 p-5 text-sm sm:p-10 md:text-lg;
 			}
 		}
 	}

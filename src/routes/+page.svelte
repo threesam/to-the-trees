@@ -128,7 +128,7 @@
 
 		{#if film.crew?.length}
 			<h3 class="mb-2 text-center font-display text-2xl sm:text-3xl">crew</h3>
-			<ul class="mb-20">
+			<ul class="mb-32">
 				{#each film.crew as crewMember}
 					<li class="grid grid-cols-2 gap-2 text-left">
 						<span class="text-right">{crewMember.role}</span>
@@ -148,7 +148,7 @@
 
 		{#if film.callouts?.length}
 			<h3 class="text-center font-display text-2xl">special thanks</h3>
-			<ul class="mb-10">
+			<ul class="mb-16">
 				{#each film.callouts as callout}
 					<li class="text-center">{callout}</li>
 				{/each}
@@ -157,7 +157,7 @@
 
 		{#if film.patrons?.length}
 			<h3 class="text-center font-display text-2xl">patrons</h3>
-			<ul class="mb-10">
+			<ul class="mb-16">
 				{#each film.patrons as patron}
 					<li class="text-center">{patron}</li>
 				{/each}
