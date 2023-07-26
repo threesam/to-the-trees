@@ -105,7 +105,9 @@
 		{/if}
 
 		{#if film.cast?.length}
-			<h3 class="mb-2 pt-10 text-center font-display text-4xl">cast</h3>
+			<h3 class="mb-2 pt-10 text-center font-display text-2xl sm:text-3xl">
+				in order of appearance
+			</h3>
 			<ul class="mb-10">
 				{#each film.cast as castMember}
 					<li class="grid grid-cols-2 gap-2 text-left">
@@ -125,8 +127,8 @@
 		{/if}
 
 		{#if film.crew?.length}
-			<h3 class="mb-2 text-center font-display text-4xl">crew</h3>
-			<ul>
+			<h3 class="mb-2 text-center font-display text-2xl sm:text-3xl">crew</h3>
+			<ul class="mb-20">
 				{#each film.crew as crewMember}
 					<li class="grid grid-cols-2 gap-2 text-left">
 						<span class="text-right">{crewMember.role}</span>
@@ -145,19 +147,19 @@
 		{/if}
 
 		{#if film.callouts?.length}
-			<h3 class="mb-2 text-center font-display text-4xl">Special Thanks</h3>
-			<ul>
+			<h3 class="mb-1 text-center font-display text-2xl">special thanks</h3>
+			<ul class="mb-10">
 				{#each film.callouts as callout}
-					<li>{callout}</li>
+					<li class="text-center">{callout}</li>
 				{/each}
 			</ul>
 		{/if}
 
 		{#if film.patrons?.length}
-			<h3 class="mb-2 text-center font-display text-4xl">Patrons</h3>
-			<ul>
+			<h3 class="mb-1 text-center font-display text-2xl">patrons</h3>
+			<ul class="mb-10">
 				{#each film.patrons as patron}
-					<li>{patron}</li>
+					<li class="text-center">{patron}</li>
 				{/each}
 			</ul>
 		{/if}
