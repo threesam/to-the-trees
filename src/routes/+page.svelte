@@ -94,45 +94,73 @@
 {/if} -->
 
 <div class="relative lg:mt-10">
+	<div class="absolute inset-0 h-full w-full overflow-hidden">
+		<svelte:component this={SketchAsync} />
+	</div>
+
 	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10 lg:pt-10">
-		<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
-		<PortableText blocks={film.synopsis} />
+		{#if film.synopsis}
+			<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
+			<PortableText blocks={film.synopsis} />
+		{/if}
 
-		<h3 class="mb-2 pt-10 text-center font-display text-4xl">cast</h3>
-		<ul class="mb-10">
-			{#each film.cast as castMember}
-				<li class="grid grid-cols-2 gap-2 text-left">
-					<span class="text-right">{castMember.role}</span>
+		{#if film.cast?.length}
+			<h3 class="mb-2 pt-10 text-center font-display text-4xl">cast</h3>
+			<ul class="mb-10">
+				{#each film.cast as castMember}
+					<li class="grid grid-cols-2 gap-2 text-left">
+						<span class="text-right">{castMember.role}</span>
 
-					{#if castMember.name && castMember.link}
-						<a
-							class="h-max w-max border-b border-primary transition-all duration-300 hover:border-transparent hover:tracking-wider hover:text-primary"
-							href={castMember.link}>{castMember.name}</a
-						>
-					{:else}
-						<span>{castMember.name}</span>
-					{/if}
-				</li>
-			{/each}
-		</ul>
+						{#if castMember.name && castMember.link}
+							<a
+								class="h-max w-max border-b border-primary transition-all duration-300 hover:border-transparent hover:tracking-wider hover:text-primary"
+								href={castMember.link}>{castMember.name}</a
+							>
+						{:else}
+							<span>{castMember.name}</span>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		{/if}
 
-		<h3 class="mb-2 text-center font-display text-4xl">crew</h3>
-		<ul>
-			{#each film.crew as crewMember}
-				<li class="grid grid-cols-2 gap-2 text-left">
-					<span class="text-right">{crewMember.role}</span>
+		{#if film.crew?.length}
+			<h3 class="mb-2 text-center font-display text-4xl">crew</h3>
+			<ul>
+				{#each film.crew as crewMember}
+					<li class="grid grid-cols-2 gap-2 text-left">
+						<span class="text-right">{crewMember.role}</span>
 
-					{#if crewMember.name && crewMember.link}
-						<a
-							class="h-max w-max border-b border-primary transition-all duration-300 hover:border-transparent hover:tracking-wider hover:text-primary"
-							href={crewMember.link}>{crewMember.name}</a
-						>
-					{:else}
-						<span>{crewMember.name}</span>
-					{/if}
-				</li>
-			{/each}
-		</ul>
+						{#if crewMember.name && crewMember.link}
+							<a
+								class="h-max w-max border-b border-primary transition-all duration-300 hover:border-transparent hover:tracking-wider hover:text-primary"
+								href={crewMember.link}>{crewMember.name}</a
+							>
+						{:else}
+							<span>{crewMember.name}</span>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+
+		{#if film.callouts?.length}
+			<h3 class="mb-2 text-center font-display text-4xl">Special Thanks</h3>
+			<ul>
+				{#each film.callouts as callout}
+					<li>{callout}</li>
+				{/each}
+			</ul>
+		{/if}
+
+		{#if film.patrons?.length}
+			<h3 class="mb-2 text-center font-display text-4xl">Patrons</h3>
+			<ul>
+				{#each film.patrons as patron}
+					<li>{patron}</li>
+				{/each}
+			</ul>
+		{/if}
 
 		<!-- <div class="relative z-0 mx-auto w-96 max-w-full py-10">
 			<img
@@ -142,24 +170,7 @@
 			/>
 		</div> -->
 	</div>
-
-	<!-- <Sketch /> -->
-	<div class="absolute inset-0 h-full w-full overflow-hidden">
-		<svelte:component this={SketchAsync} />
-	</div>
 </div>
-
-<!-- <section class="mx-auto grid max-w-3xl grid-cols-2">
-	<div class="flex h-full flex-col items-center justify-center">
-		<h4>Subsribe for updates about future films</h4>
-		<SubscribeForm />
-	</div>
-
-	<img
-		src="https://cdn.sanity.io/images/ppo5s5uj/production/51a274391049752df8879959988ba57a6db4ee28-1200x1200.jpg?w=2000&fit=max&auto=format&dpr=2"
-		alt="act out logo"
-	/>
-</section> -->
 
 <footer
 	class="relative z-0 grid h-full w-full place-content-center bg-primary p-2 text-center text-dark"
