@@ -3,10 +3,10 @@
 	import SEO from 'svelte-seo'
 	// import Sketch from '$lib/components/Sketch.svelte'
 	// import SocialLinks from '$lib/components/SocialLinks.svelte'
-	// import SubscribeForm from '$lib/components/SubscribeForm.svelte'
+	import SubscribeForm from '$lib/components/SubscribeForm.svelte'
 	// import { urlFor } from '$lib/utils/sanity'
 	import type { PageData } from './$types'
-	import Carousel from '$lib/components/Carousel.svelte'
+	// import Carousel from '$lib/components/Carousel.svelte'
 	import { onMount } from 'svelte'
 	import { urlFor } from '$lib/utils/sanity'
 
@@ -134,13 +134,13 @@
 			{/each}
 		</ul>
 
-		<div class="relative z-0 mx-auto w-96 max-w-full py-10">
+		<!-- <div class="relative z-0 mx-auto w-96 max-w-full py-10">
 			<img
 				src="https://cdn.sanity.io/images/ppo5s5uj/production/d80784503ede3aa2ec966b597dd272a5b619820b-709x1280.jpg"
 				alt="to the trees poster"
-				class="h-full w-full border-4 border-primary"
+				class="h-full w-full"
 			/>
-		</div>
+		</div> -->
 	</div>
 
 	<!-- <Sketch /> -->
@@ -149,8 +149,20 @@
 	</div>
 </div>
 
+<!-- <section class="mx-auto grid max-w-3xl grid-cols-2">
+	<div class="flex h-full flex-col items-center justify-center">
+		<h4>Subsribe for updates about future films</h4>
+		<SubscribeForm />
+	</div>
+
+	<img
+		src="https://cdn.sanity.io/images/ppo5s5uj/production/51a274391049752df8879959988ba57a6db4ee28-1200x1200.jpg?w=2000&fit=max&auto=format&dpr=2"
+		alt="act out logo"
+	/>
+</section> -->
+
 <footer
 	class="relative z-0 grid h-full w-full place-content-center bg-primary p-2 text-center text-dark"
 >
-	© to the trees 2023
+	©2023 to the trees
 </footer>

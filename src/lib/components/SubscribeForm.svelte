@@ -40,7 +40,7 @@
 </script>
 
 <form
-	class="flex max-w-full flex-grow flex-col gap-10 lg:flex-row lg:gap-0"
+	class="flex h-16 max-w-full flex-col gap-10 lg:flex-row lg:gap-0"
 	action={endpoint}
 	method="post"
 	on:submit|preventDefault={handleSubmit}
@@ -51,19 +51,19 @@
 			name="email"
 			id="email"
 			placeholder="enter email"
-			class="bg-dark w-full rounded-none border-2 border-gray-300 p-5 text-white placeholder:text-gray-300
-			focus:border-pink-300 focus:outline-none focus:placeholder:text-gray-300/60"
+			class="h-16 w-full rounded-none border-2 border-gray-300 bg-dark p-5 text-white placeholder:text-gray-300
+			focus:border-primary focus:outline-none focus:placeholder:text-gray-300/60"
 			on:change={handleChange}
 			bind:value={$form.email}
 		/>
 		{#if isSubmitted}
-			<span class="bg-dark absolute -bottom-8 left-0 w-max" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
+			<span class="absolute -bottom-8 left-0 w-max bg-dark" in:fly={{ x: -30 }} out:fly={{ x: 30 }}
 				>{message}</span
 			>
 		{/if}
 	</label>
 	<button
-		class="text-dark border-2 border-gray-300 bg-gray-300 p-5 lg:border-none lg:pl-5"
+		class="h-16 border-2 border-gray-300 bg-gray-300 p-5 text-dark lg:border-none lg:pl-5"
 		type="submit"
 	>
 		subscribe
