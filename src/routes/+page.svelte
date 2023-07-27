@@ -174,7 +174,7 @@
 			</ul>
 		{/if}
 
-		<div class="relative z-0 mx-auto w-96 max-w-full pb-24">
+		<div class="relative z-0 -m-5 mx-auto h-max w-full pb-24">
 			<img
 				src="https://cdn.sanity.io/images/ppo5s5uj/production/b105aa4858cf1e871270126c0ad801a75615e20e-2048x2731.jpg"
 				alt="to the trees poster"
