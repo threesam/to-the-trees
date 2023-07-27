@@ -108,7 +108,7 @@
 			<h3 class="mb-8 pt-10 text-center font-display text-2xl sm:text-3xl">
 				in order of appearance
 			</h3>
-			<ul class="mb-20">
+			<ul class="mb-32">
 				{#each film.cast as castMember}
 					<li class="mb-8 flex flex-col text-center">
 						<span class="text-center text-sm text-gray-300">{castMember.role}</span>
@@ -128,9 +128,9 @@
 
 		{#if film.crew?.length}
 			<h3 class="mb-2 text-center font-display text-2xl sm:text-3xl">crew</h3>
-			<ul class="mb-16">
+			<ul class="mb-32">
 				{#each film.crew as crewMember}
-					<li class="grid grid-cols-2 items-center gap-2 text-left">
+					<li class="mb-4 grid grid-cols-2 items-center gap-x-5 text-left">
 						<span class="text-right text-sm text-gray-300">{crewMember.role}</span>
 
 						{#if crewMember.name && crewMember.link}
@@ -146,7 +146,7 @@
 			</ul>
 		{/if}
 
-		<div class="mb-16 border border-gray-300 bg-dark p-5 sm:p-10">
+		<div class="mb-32 border border-gray-300 bg-dark p-5 sm:p-10">
 			{#if film.patrons?.length}
 				<!-- <h3 class="text-center font-display text-3xl">patrons</h3> -->
 				Our work is made possible via patrons. We have no backing from any media outlet, any organizations
@@ -167,9 +167,9 @@
 
 		{#if film.callouts?.length}
 			<h3 class="text-center font-display text-2xl">special thanks</h3>
-			<ul class="mb-4">
+			<ul class="mb-24">
 				{#each film.callouts as callout}
-					<li class="text-center">{callout}</li>
+					<li class="mb-2 text-center last:mb-0">{callout}</li>
 				{/each}
 			</ul>
 		{/if}
