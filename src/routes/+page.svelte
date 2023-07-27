@@ -146,7 +146,7 @@
 			</ul>
 		{/if}
 
-		<div class="mb-32 border border-gray-300 bg-dark p-5 sm:p-10">
+		<div class="mb-32 border border-gray-600 bg-dark p-5 sm:p-10">
 			{#if film.patrons?.length}
 				<!-- <h3 class="text-center font-display text-3xl">patrons</h3> -->
 				Our work is made possible via patrons. We have no backing from any media outlet, any organizations
@@ -167,20 +167,20 @@
 
 		{#if film.callouts?.length}
 			<h3 class="text-center font-display text-2xl">special thanks</h3>
-			<ul class="mb-24">
+			<ul class="mb-32">
 				{#each film.callouts as callout}
 					<li class="mb-2 text-center last:mb-0">{callout}</li>
 				{/each}
 			</ul>
 		{/if}
 
-		<!-- <div class="relative z-0 mx-auto w-96 max-w-full py-10">
+		<div class="relative z-0 mx-auto w-96 max-w-full pb-24">
 			<img
-				src="https://cdn.sanity.io/images/ppo5s5uj/production/d80784503ede3aa2ec966b597dd272a5b619820b-709x1280.jpg"
+				src="https://cdn.sanity.io/images/ppo5s5uj/production/b105aa4858cf1e871270126c0ad801a75615e20e-2048x2731.jpg"
 				alt="to the trees poster"
 				class="h-full w-full"
 			/>
-		</div> -->
+		</div>
 	</div>
 </div>
 
