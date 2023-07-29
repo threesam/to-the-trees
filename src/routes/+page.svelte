@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Marquee from 'svelte-fast-marquee'
+	// import Marquee from 'svelte-fast-marquee'
 	import { onMount } from 'svelte'
 	import PortableText from '$lib/components/PortableText.svelte'
 	import SEO from 'svelte-seo'
