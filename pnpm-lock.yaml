@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@arisbh/marqueeck':
+    specifier: ^0.2.1
+    version: 0.2.1(svelte@4.1.1)
   '@mailchimp/mailchimp_marketing':
     specifier: ^3.0.80
     version: 3.0.80
@@ -80,6 +83,9 @@ dependencies:
   svelte-email:
     specifier: ^0.0.4
     version: 0.0.4
+  svelte-fast-marquee:
+    specifier: ^0.4.1
+    version: 0.4.1
   svelte-forms-lib:
     specifier: 2.0.1
     version: 2.0.1
@@ -123,6 +129,14 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
+    dev: false
+
+  /@arisbh/marqueeck@0.2.1(svelte@4.1.1):
+    resolution: {integrity: sha512-VCuq3qTm7IegLMwjUY3sMmwjJ9tpOb3y4vxRdmS5NyAS+/w30FKxCSr30qPRdyWK5/pgyaFjTQzK5EoQHc9nUw==}
+    peerDependencies:
+      svelte: ^3.54.0
+    dependencies:
+      svelte: 4.1.1
     dev: false
 
   /@babel/code-frame@7.22.5:
@@ -3583,6 +3597,10 @@ packages:
       html-to-text: 9.0.5
       pretty: 2.0.0
       svelte: 3.59.1
+    dev: false
+
+  /svelte-fast-marquee@0.4.1:
+    resolution: {integrity: sha512-M5fqQlFZZugoUQo6mOrer0QSe+XTmJnX4x+06x6S07Wlvy0dA8P9xjajPv8QymJgTCMVGHiv2KN16MgIp6JU/g==}
     dev: false
 
   /svelte-forms-lib@2.0.1:

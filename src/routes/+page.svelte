@@ -1,21 +1,15 @@
 <script lang="ts">
+	import Marquee from 'svelte-fast-marquee'
+	import { onMount } from 'svelte'
 	import PortableText from '$lib/components/PortableText.svelte'
 	import SEO from 'svelte-seo'
-	// import Sketch from '$lib/components/Sketch.svelte'
-	// import SocialLinks from '$lib/components/SocialLinks.svelte'
-	import SubscribeForm from '$lib/components/SubscribeForm.svelte'
-	// import { urlFor } from '$lib/utils/sanity'
-	import type { PageData } from './$types'
-	// import Carousel from '$lib/components/Carousel.svelte'
-	import { onMount } from 'svelte'
 	import { urlFor } from '$lib/utils/sanity'
+
+	export let data: PageData
+	const { film } = data.body
 
 	let clientHeight: number | undefined
 	let clientWidth: number | undefined
-
-	export let data: PageData
-
-	const { film } = data.body
 
 	$: backgroundImageSrc = urlFor(film.image.asset.url)
 		.width(clientWidth ?? 1920)
@@ -80,18 +74,87 @@
 	</div>
 </section>
 
-<!-- {#if film.showLaurels}
-	<Carousel
-		items={[
-			...film.laurels,
-			...film.laurels,
-			...film.laurels,
-			...film.laurels,
-			...film.laurels,
-			...film.laurels
-		]}
-	/>
-{/if} -->
+<!-- <Marquee speed={10}>
+	<div class="flex gap-5 pt-32 px-5">
+		<img
+			alt="Official Selection - North Dakota Environmental Rights Film Festival"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/e1acf07846308155a42165ab2be88695ac3e4474-3042x3055.png?w=160"
+		/>
+		<img
+			alt="Official Selection - Voices Rising Film Festival"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/3e864e840fcdc013de51ed186f3c03c72bd73757-4958x3292.png?w=160"
+		/>
+		<img
+			alt="Semi-Finalist - jelly Film Festival"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/9d2950b56a0105c9eba25f25d675f3bbd699a617-1735x1152.png?w=160"
+		/>
+		<img
+			alt="Semi-Finalist - Southeastern International Film &amp; Music Festival"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/b86e1462e51466801edba3061f48be5f46d23f9e-1735x1152.png?w=160"
+		/>
+		<img
+			alt="Best Feature Length Documentary Film - Southern States Indie FanFilmFest - Autumn 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/1344e39a7837f4508bf515ee009aa22476dde191-533x367.png?w=160"
+		/>
+		<img
+			alt="OFFICIAL SELECTION - WV FILMmakers Festival - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/345b54c9d80c6d24bb406c4729fb5136149cac2b-1735x1152.png?w=160"
+		/>
+		<img
+			alt="Semi-Finalist - Cannes International Independent Film Festival - CIIFF - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/daf464336e10c20127fd3d11c5a23ca3e8c11983-1735x1152.png?w=160"
+		/>
+		<img
+			alt="Best Environmental Film - Docs Without Borders Film Festival - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/9a996ec6943a6fe2ae7017e5ef8d33b63e5f3748-1735x1152.png?w=160"
+		/>
+		<img
+			alt="OFFICIAL SELECTION - 18th Oakland International Film Festival - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/98fa2029b0fbb4508c37f72ba084d4990477c80e-1735x1152.png?w=160"
+		/>
+		<img
+			alt="OFFICIAL SELECTION - Chain NYC Film Festival - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/c904ffbf28d576f9eddadb52f0272d0830693f9c-1735x1152.png?w=160"
+		/><img
+			alt="Best Documentary - The Impact DOCS Awards - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/1796e0f3856401f8e295bc4e398339d37f785b65-1735x1152.png?w=160"
+		/>
+		<img
+			alt="Best Feature Doc - Rome Independent Prisma Awards - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/2c4970a3288dbe754cafaf640ca40b5a8b3e92b1-1735x1152.png?w=160"
+		/>
+		<img
+			alt="OFFICIAL SELECTION - New York Lift-Off Film Festival - 2020"
+			class="award svelte-1ns24pq"
+			loading="lazy"
+			src="https://cdn.sanity.io/images/8baclurv/production/5a9893fb63ce6b5481f78e350e6323450a75a889-1735x1152.png?w=160"
+		/>
+	</div>
+</Marquee> -->
 
 <div class="relative lg:mt-10">
 	<div class="absolute inset-0 h-full w-full overflow-hidden">
@@ -176,7 +239,12 @@
 
 		<div class="relative z-0 -m-5 mx-auto h-max w-full pb-24">
 			<img
-				src="https://cdn.sanity.io/images/ppo5s5uj/production/b105aa4858cf1e871270126c0ad801a75615e20e-2048x2731.jpg"
+				src={urlFor(
+					'https://cdn.sanity.io/images/ppo5s5uj/production/b105aa4858cf1e871270126c0ad801a75615e20e-2048x2731.jpg'
+				)
+					.width(768)
+					.auto('format')
+					.url()}
 				alt="to the trees poster"
 				class="h-full w-full"
 			/>
@@ -189,3 +257,10 @@
 >
 	©2023 to the trees
 </footer>
+
+<style>
+	.award {
+		filter: invert();
+		height: 100px;
+	}
+</style>
