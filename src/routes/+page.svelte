@@ -157,9 +157,11 @@
 </Marquee> -->
 
 <div class="relative lg:mt-10">
-	<div class="absolute inset-0 h-full w-full overflow-hidden">
-		<svelte:component this={SketchAsync} />
-	</div>
+	{#if SketchAsync}
+		<div class="absolute inset-0 h-full w-full overflow-hidden">
+			<svelte:component this={SketchAsync} />
+		</div>
+	{/if}
 
 	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10 lg:pt-10">
 		{#if film.synopsis}
