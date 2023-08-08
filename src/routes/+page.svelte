@@ -169,10 +169,21 @@
 			<PortableText blocks={film.synopsis} />
 		{/if}
 
+		<div class="w-full flex justify-center items-center flex-col mb-32 aspect-video">
+			<iframe
+				src="https://player.vimeo.com/video/852357990?h=256ab7e92e"
+				width="1024"
+				height="576"
+				class="aspect-video lg:border lg:border-primary max-w-full lg:max-w-none h-full lg:h-auto"
+				frameborder="0"
+				title="To The Trees Trailer 1"
+				allow="autoplay; fullscreen; picture-in-picture"
+				allowfullscreen
+			></iframe>
+		</div>
+
 		{#if film.cast?.length}
-			<h3 class="mb-8 pt-10 text-center font-display text-2xl sm:text-3xl">
-				in order of appearance
-			</h3>
+			<h3 class="mb-8 text-center font-display text-2xl sm:text-3xl">in order of appearance</h3>
 			<ul class="mb-32">
 				{#each film.cast as castMember}
 					<li class="mb-8 flex flex-col text-center">

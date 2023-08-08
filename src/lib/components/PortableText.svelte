@@ -3,7 +3,7 @@
 	import { PortableText } from '@portabletext/svelte'
 </script>
 
-<section class="portable-text mx-auto mb-16 max-w-4xl">
+<section class="portable-text mx-auto mb-32 max-w-4xl">
 	<PortableText value={blocks} />
 </section>
 
