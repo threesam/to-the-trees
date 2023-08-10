@@ -69,7 +69,13 @@
 			href={film.gumroadLink ?? '#'}
 			class="relative z-0 flex h-full w-full items-center justify-center bg-transparent p-5 transition-colors duration-300 hover:bg-primary sm:p-10"
 		>
-			<span class="bg-primary p-3 text-dark sm:p-8 sm:font-bold"> WATCH NOW </span>
+			<span class="bg-primary p-3 text-dark sm:p-8 sm:font-bold">
+				{#if film.gumroadLink}
+					WATCH NOW
+				{:else}
+					COMING SOON
+				{/if}
+			</span>
 		</a>
 	</div>
 </section>
