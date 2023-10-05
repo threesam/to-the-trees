@@ -115,7 +115,7 @@
 				>
 					{#each film.press as press}
 						<li
-							class="snap-start text-xl text-dark items-center flex gap-3 flex-col grow shrink-0 max-w-xl"
+							class="snap-start text-xl col-span-full lg:col-span-1 mb-5 lg:mb-0 text-dark items-center flex gap-3 flex-col grow shrink-0 max-w-xl"
 						>
 							<blockquote class="bg-primary p-5">"{press.description}"</blockquote>
 							{#if press.url}
