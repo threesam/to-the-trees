@@ -108,14 +108,14 @@
 			<section class="-mx-[calc(100vw-100%)/2] mb-32 pb-5 px-5">
 				<ul
 					class={`w-full gap-5 ${
-						film.press.length === 3
-							? 'grid grid-cols-3'
+						film.press.length === 4
+							? 'grid grid-cols-4'
 							: 'snap-x snap-mandatory flex overflow-x-scroll'
 					}`}
 				>
 					{#each film.press as press}
 						<li
-							class="snap-start text-xl col-span-full lg:col-span-1 mb-5 lg:mb-0 text-dark items-center flex gap-3 flex-col grow shrink-0 max-w-xl"
+							class="snap-start text-xl col-span-full lg:col-span-1 mb-5 lg:mb-0 text-dark items-center flex gap-3 flex-col grow shrink-0 max-w-md"
 						>
 							<blockquote class="bg-primary p-5">"{press.description}"</blockquote>
 							{#if press.url}
