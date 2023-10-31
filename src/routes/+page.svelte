@@ -109,7 +109,7 @@
 				<ul
 					class={`w-full gap-5 ${
 						film.press.length === 4
-							? 'grid grid-cols-4'
+							? 'grid grid-cols-4 items-center'
 							: 'snap-x snap-mandatory flex overflow-x-scroll'
 					}`}
 				>
