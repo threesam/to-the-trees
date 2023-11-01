@@ -4,12 +4,14 @@
 	import PortableText from '$lib/components/PortableText.svelte'
 	import SEO from 'svelte-seo'
 	import { urlFor } from '$lib/utils/sanity'
+	import { fade } from 'svelte/transition'
 
 	export let data: PageData
 	const { film } = data.body
 
 	let clientHeight: number | undefined
 	let clientWidth: number | undefined
+	let scrollY: number | undefined
 
 	$: backgroundImageSrc = urlFor(film.image.asset.url)
 		.width(clientWidth ?? 1920)
@@ -36,6 +38,8 @@
 		]
 	}}
 />
+
+<svelte:window bind:scrollY />
 
 <!-- HERO -->
 <section
@@ -99,6 +103,16 @@
 	{/if}
 
 	<div class="relative z-10 mx-auto max-w-3xl px-5 pb-10 pt-5 sm:px-10 lg:pt-10">
+		{#if scrollY && scrollY > clientHeight}
+			<a
+				href={film.gumroadLink ?? '#'}
+				transition:fade
+				class="w-full fixed h-10 text-center flex justify-center items-center uppercase text-black z-50 bg-primary inset-0"
+			>
+				watch now
+			</a>
+		{/if}
+
 		{#if film.synopsis}
 			<h2 class="mb-2 text-center font-display text-4xl font-normal">synopsis</h2>
 			<PortableText blocks={film.synopsis} />
@@ -117,7 +131,7 @@
 						<li
 							class="snap-start text-xl col-span-full lg:col-span-1 mb-5 lg:mb-0 text-dark items-center flex gap-3 flex-col grow shrink-0 max-w-md"
 						>
-							<blockquote class="bg-primary p-5">"{press.description}"</blockquote>
+							<blockquote class="bg-gray-200 p-5">"{press.description}"</blockquote>
 							{#if press.url}
 								<a
 									class="text-right text-sm w-full block text-gray-300 border-b-2 border-primary transition-all duration-100 hover:border-transparent hover:pb-1 hover:text-primary"
@@ -214,7 +228,7 @@
 			</ul>
 		{/if}
 
-		<div class="relative z-0 -m-5 mx-auto h-max w-full pb-24">
+		<div class="relative z-0 -m-5 mx-auto h-max w-full">
 			<img
 				src={urlFor(
 					'https://cdn.sanity.io/images/ppo5s5uj/production/b105aa4858cf1e871270126c0ad801a75615e20e-2048x2731.jpg'
@@ -230,7 +244,7 @@
 </div>
 
 <footer
-	class="relative z-0 grid h-full w-full place-content-center bg-primary p-2 text-center text-dark"
+	class="relative z-0 grid h-full w-full place-content-center bg-dark p-2 text-center text-primary"
 >
 	©2023 to the trees
 </footer>

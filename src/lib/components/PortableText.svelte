@@ -34,7 +34,7 @@
 			}
 
 			blockquote {
-				@apply mb-5 mt-8 bg-primary p-5 text-xl text-dark;
+				@apply mb-5 mt-8 bg-gray-200 p-5 text-xl text-dark;
 			}
 		}
 	}
